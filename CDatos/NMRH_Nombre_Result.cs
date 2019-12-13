@@ -11,7 +11,7 @@ namespace CDatos
 {
     using System;
     
-    public partial class eumc1_getProductByIdOrName_Result
+    public partial class NMRH_Nombre_Result
     {
         public int Id { get; set; }
         public Nullable<int> IdType { get; set; }

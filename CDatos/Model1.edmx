@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="DataProductsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="DataProductsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="CatBrands">
           <Key>
             <PropertyRef Name="IdBrand" />
@@ -452,12 +452,18 @@ advertencia 6002: La tabla o vista 'DataProducts.sys.database_firewall_rules' no
           <Parameter Name="id" Type="int" Mode="In" />
         </Function>
         <Function Name="ACOB_GetSizes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="ACOB_InsertColor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="desc" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="hexa" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="isEn" Type="bit" Mode="In" />
+        </Function>
         <Function Name="ACOB_InsertImages" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="idProduct" Type="int" Mode="In" />
           <Parameter Name="Descripcion" Type="nvarchar(max)" Mode="In" />
           <Parameter Name="Image" Type="varbinary(max)" Mode="In" />
           <Parameter Name="DateUpdate" Type="datetime" Mode="In" />
-          <Parameter Name="IsEnable" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="IsEnable" Type="bit" Mode="In" />
         </Function>
         <Function Name="ACOB_InsertProduct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IdType" Type="int" Mode="In" />
@@ -475,6 +481,13 @@ advertencia 6002: La tabla o vista 'DataProducts.sys.database_firewall_rules' no
           <Parameter Name="IsEnabled" Type="bit" Mode="In" />
           <Parameter Name="Keywords" Type="nvarchar(max)" Mode="In" />
           <Parameter Name="DateUpdate" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="ACOB_InsertSize" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdType" Type="int" Mode="In" />
+          <Parameter Name="Code" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Unity" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Desc" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Value" Type="nvarchar(max)" Mode="In" />
         </Function>
         <Function Name="ACOB_SearchByIdOrName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Id" Type="int" Mode="In" />
@@ -550,6 +563,9 @@ advertencia 6002: La tabla o vista 'DataProducts.sys.database_firewall_rules' no
           <Parameter Name="Keywords" Type="varchar" Mode="In" />
           <Parameter Name="DateUpdate" Type="datetime" Mode="In" />
         </Function>
+        <Function Name="BRTV_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+        </Function>
         <Function Name="BRTV_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IdType" Type="int" Mode="In" />
           <Parameter Name="IdColor" Type="int" Mode="In" />
@@ -614,6 +630,24 @@ advertencia 6002: La tabla o vista 'DataProducts.sys.database_firewall_rules' no
           <Parameter Name="Keywords" Type="nvarchar" Mode="In" />
           <Parameter Name="DateUpdate" Type="datetime" Mode="In" />
         </Function>
+        <Function Name="dena_sp_ModificarProd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+          <Parameter Name="idType" Type="int" Mode="In" />
+          <Parameter Name="idColor" Type="int" Mode="In" />
+          <Parameter Name="idBrand" Type="int" Mode="In" />
+          <Parameter Name="idProvider" Type="int" Mode="In" />
+          <Parameter Name="idCatalog" Type="int" Mode="In" />
+          <Parameter Name="Title" Type="varchar" Mode="In" />
+          <Parameter Name="Nombre" Type="varchar" Mode="In" />
+          <Parameter Name="Description" Type="varchar" Mode="In" />
+          <Parameter Name="Observations" Type="varchar" Mode="In" />
+          <Parameter Name="PriceDistributor" Type="decimal" Mode="In" />
+          <Parameter Name="PriceClient" Type="decimal" Mode="In" />
+          <Parameter Name="PriceMember" Type="decimal" Mode="In" />
+          <Parameter Name="IsEnabled" Type="bit" Mode="In" />
+          <Parameter Name="Keywords" Type="varchar" Mode="In" />
+          <Parameter Name="DateUpdate" Type="datetime" Mode="In" />
+        </Function>
         <Function Name="dena_sp_MostrarTodo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="eumc1_getAllProviders" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="eumc1_getProductByIdOrName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -635,7 +669,7 @@ advertencia 6002: La tabla o vista 'DataProducts.sys.database_firewall_rules' no
           <Parameter Name="Descripcion" Type="nvarchar(max)" Mode="In" />
           <Parameter Name="Image" Type="varbinary(max)" Mode="In" />
           <Parameter Name="DateUpdate" Type="datetime" Mode="In" />
-          <Parameter Name="IsEnable" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="IsEnable" Type="bit" Mode="In" />
         </Function>
         <Function Name="FAVV_BuscaNombrePorId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="elId" Type="int" Mode="In" />
@@ -774,6 +808,13 @@ advertencia 6002: La tabla o vista 'DataProducts.sys.database_firewall_rules' no
         </Function>
         <Function Name="MPVI_SEARCH_NOMBRE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="NOMBRE" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="NMRH_ID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="NMRH_lOOK" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="NMRH_Nombre" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Nombre" Type="nvarchar(max)" Mode="In" />
         </Function>
         <Function Name="SEMD_AddShoes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IdType" Type="int" Mode="In" />
@@ -935,7 +976,8 @@ advertencia 6002: La tabla o vista 'DataProducts.sys.database_firewall_rules' no
             <End Role="Qualification" EntitySet="Qualification" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DataProductsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -1103,9 +1145,9 @@ advertencia 6002: La tabla o vista 'DataProducts.sys.database_firewall_rules' no
           <Property Name="IdProduct" Type="Int32" Nullable="false" />
           <Property Name="Decription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
-          <Property Name="DateUpdate" Type="DateTime" Precision="3" Nullable="false" />
-          <Property Name="IsEnabled" Type="String" Nullable="false" />
-          <NavigationProperty Name="Products" Relationship="Self.FK_ProductsImagesProduct" FromRole="ImagesProduct" ToRole="Products" />
+          <Property Name="DateUpdate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsEnabled" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Products" Relationship="Self.FK_IDProducto" FromRole="ImagesProduct" ToRole="Products" />
         </EntityType>
         <EntityType Name="Products">
           <Key>
@@ -1134,7 +1176,7 @@ advertencia 6002: La tabla o vista 'DataProducts.sys.database_firewall_rules' no
           <NavigationProperty Name="CatTypeProduct" Relationship="Self.FK_CatTypeProductProducts" FromRole="Products" ToRole="CatTypeProduct" />
           <NavigationProperty Name="Comments" Relationship="Self.FK_ProductsComments" FromRole="Products" ToRole="Comments" />
           <NavigationProperty Name="DetailProduct" Relationship="Self.FK_ProductsDetailProduct" FromRole="Products" ToRole="DetailProduct" />
-          <NavigationProperty Name="ImagesProduct" Relationship="Self.FK_ProductsImagesProduct" FromRole="Products" ToRole="ImagesProduct" />
+          <NavigationProperty Name="ImagesProduct" Relationship="Self.FK_IDProducto" FromRole="Products" ToRole="ImagesProduct" />
           <NavigationProperty Name="SimilarProduct" Relationship="Self.FK_ProductsSimilarProduct" FromRole="Products" ToRole="SimilarProduct" />
           <NavigationProperty Name="SizeForProduct" Relationship="Self.FK_ProductsSizeForProduct" FromRole="Products" ToRole="SizeForProduct" />
           <NavigationProperty Name="Qualification" Relationship="Self.FK_QualificationProducts" FromRole="Products" ToRole="Qualification" />
@@ -1364,7 +1406,7 @@ advertencia 6002: La tabla o vista 'DataProducts.sys.database_firewall_rules' no
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ProductsImagesProduct">
+        <Association Name="FK_IDProducto">
           <End Role="Products" Type="Self.Products" Multiplicity="1" />
           <End Role="ImagesProduct" Type="Self.ImagesProduct" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1488,7 +1530,7 @@ advertencia 6002: La tabla o vista 'DataProducts.sys.database_firewall_rules' no
             <End Role="Products" EntitySet="Products" />
             <End Role="DetailProduct" EntitySet="DetailProduct" />
           </AssociationSet>
-          <AssociationSet Name="FK_ProductsImagesProduct" Association="Self.FK_ProductsImagesProduct">
+          <AssociationSet Name="FK_IDProducto" Association="Self.FK_IDProducto">
             <End Role="Products" EntitySet="Products" />
             <End Role="ImagesProduct" EntitySet="ImagesProduct" />
           </AssociationSet>
@@ -1505,7 +1547,25 @@ advertencia 6002: La tabla o vista 'DataProducts.sys.database_firewall_rules' no
             <End Role="Qualification" EntitySet="Qualification" />
           </AssociationSet>
           <FunctionImport Name="ACOB_DeleteProd">
-          <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ACOB_GetColors" ReturnType="Collection(DataProductsModel.ACOB_GetColors_Result)" />
+          <FunctionImport Name="ACOB_GetImages" ReturnType="Collection(DataProductsModel.ACOB_GetImages_Result)">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ACOB_GetSizes" ReturnType="Collection(DataProductsModel.ACOB_GetSizes_Result)" />
+          <FunctionImport Name="ACOB_InsertColor">
+            <Parameter Name="name" Mode="In" Type="String" />
+            <Parameter Name="desc" Mode="In" Type="String" />
+            <Parameter Name="hexa" Mode="In" Type="String" />
+            <Parameter Name="isEn" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="ACOB_InsertImages">
+            <Parameter Name="idProduct" Mode="In" Type="Int32" />
+            <Parameter Name="Descripcion" Mode="In" Type="String" />
+            <Parameter Name="Image" Mode="In" Type="Binary" />
+            <Parameter Name="DateUpdate" Mode="In" Type="DateTime" />
+            <Parameter Name="IsEnable" Mode="In" Type="Boolean" />
           </FunctionImport>
           <FunctionImport Name="ACOB_InsertProduct">
             <Parameter Name="IdType" Mode="In" Type="Int32" />
@@ -1523,6 +1583,13 @@ advertencia 6002: La tabla o vista 'DataProducts.sys.database_firewall_rules' no
             <Parameter Name="IsEnabled" Mode="In" Type="Boolean" />
             <Parameter Name="Keywords" Mode="In" Type="String" />
             <Parameter Name="DateUpdate" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="ACOB_InsertSize">
+            <Parameter Name="IdType" Mode="In" Type="Int32" />
+            <Parameter Name="Code" Mode="In" Type="String" />
+            <Parameter Name="Unity" Mode="In" Type="String" />
+            <Parameter Name="Desc" Mode="In" Type="String" />
+            <Parameter Name="Value" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="ACOB_SearchByIdOrName" ReturnType="Collection(DataProductsModel.ACOB_SearchByIdOrName_Result)">
             <Parameter Name="Id" Mode="In" Type="Int32" />
@@ -1546,15 +1613,39 @@ advertencia 6002: La tabla o vista 'DataProducts.sys.database_firewall_rules' no
             <Parameter Name="Keywords" Mode="In" Type="String" />
             <Parameter Name="DateUpdate" Mode="In" Type="DateTime" />
           </FunctionImport>
+          <FunctionImport Name="ADER1_GetImagesByProductID" ReturnType="Collection(Binary)">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ADER1_GetSizesOfProduct" ReturnType="Collection(String)">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
           <FunctionImport Name="ADER1_SearchProducts" ReturnType="Collection(DataProductsModel.ADER1_SearchProducts_Result)">
             <Parameter Name="ID" Mode="In" Type="Int32" />
             <Parameter Name="Name" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="AVHM_BusquedaID" ReturnType="Collection(DataProductsModel.AVHM_BusquedaID_Result)">
-          <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="Id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="AVHM_BusquedaNombre" ReturnType="Collection(DataProductsModel.AVHM_BusquedaNombre_Result)">
-          <Parameter Name="Nombre" Mode="In" Type="String" />
+            <Parameter Name="Nombre" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="AVHM_Modificar">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="idType" Mode="In" Type="Int32" />
+            <Parameter Name="idColor" Mode="In" Type="Int32" />
+            <Parameter Name="idBrand" Mode="In" Type="Int32" />
+            <Parameter Name="idProvider" Mode="In" Type="Int32" />
+            <Parameter Name="idCatalog" Mode="In" Type="Int32" />
+            <Parameter Name="Title" Mode="In" Type="String" />
+            <Parameter Name="Nombre" Mode="In" Type="String" />
+            <Parameter Name="Description" Mode="In" Type="String" />
+            <Parameter Name="Observations" Mode="In" Type="String" />
+            <Parameter Name="PriceDistributor" Mode="In" Type="Decimal" />
+            <Parameter Name="PriceClient" Mode="In" Type="Decimal" />
+            <Parameter Name="PriceMember" Mode="In" Type="Decimal" />
+            <Parameter Name="IsEnabled" Mode="In" Type="Boolean" />
+            <Parameter Name="Keywords" Mode="In" Type="String" />
+            <Parameter Name="DateUpdate" Mode="In" Type="DateTime" />
           </FunctionImport>
           <FunctionImport Name="AVHM_MostrarProducts" ReturnType="Collection(DataProductsModel.AVHM_MostrarProducts_Result)" />
           <FunctionImport Name="AVHM_SP_InsertProd">
@@ -1574,17 +1665,55 @@ advertencia 6002: La tabla o vista 'DataProducts.sys.database_firewall_rules' no
             <Parameter Name="Keywords" Mode="In" Type="String" />
             <Parameter Name="DateUpdate" Mode="In" Type="DateTime" />
           </FunctionImport>
+          <FunctionImport Name="BRTV_Delete">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="BRTV_Insert">
+            <Parameter Name="IdType" Mode="In" Type="Int32" />
+            <Parameter Name="IdColor" Mode="In" Type="Int32" />
+            <Parameter Name="IdBrand" Mode="In" Type="Int32" />
+            <Parameter Name="IdProvider" Mode="In" Type="Int32" />
+            <Parameter Name="Title" Mode="In" Type="String" />
+            <Parameter Name="Nombre" Mode="In" Type="String" />
+            <Parameter Name="Description" Mode="In" Type="String" />
+            <Parameter Name="Observations" Mode="In" Type="String" />
+            <Parameter Name="PriceDistributor" Mode="In" Type="Decimal" />
+            <Parameter Name="PriceClient" Mode="In" Type="Decimal" />
+            <Parameter Name="PriceMember" Mode="In" Type="Decimal" />
+            <Parameter Name="IsEnabled" Mode="In" Type="Boolean" />
+            <Parameter Name="Keywords" Mode="In" Type="String" />
+          </FunctionImport>
           <FunctionImport Name="BRTV_SearchID" ReturnType="Collection(DataProductsModel.BRTV_SearchID_Result)">
-          <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="BRTV_SearchName" ReturnType="Collection(DataProductsModel.BRTV_SearchName_Result)">
+            <Parameter Name="Name" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="CAOE_BUSCAR" ReturnType="Collection(DataProductsModel.CAOE_BUSCAR_Result)">
-          <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="CAOE_INSERTAR">
+            <Parameter Name="IdType" Mode="In" Type="Int32" />
+            <Parameter Name="IdColor" Mode="In" Type="Int32" />
+            <Parameter Name="IdBrand" Mode="In" Type="Int32" />
+            <Parameter Name="IdProvider" Mode="In" Type="Int32" />
+            <Parameter Name="IdCatalog" Mode="In" Type="Int32" />
+            <Parameter Name="Title" Mode="In" Type="String" />
+            <Parameter Name="Nombre" Mode="In" Type="String" />
+            <Parameter Name="Description" Mode="In" Type="String" />
+            <Parameter Name="Observations" Mode="In" Type="String" />
+            <Parameter Name="PriceDistributor" Mode="In" Type="Decimal" />
+            <Parameter Name="PriceClient" Mode="In" Type="Decimal" />
+            <Parameter Name="PriceMember" Mode="In" Type="Decimal" />
+            <Parameter Name="IsEnabled" Mode="In" Type="Boolean" />
+            <Parameter Name="Keywords" Mode="In" Type="String" />
+            <Parameter Name="DateUpdate" Mode="In" Type="DateTime" />
           </FunctionImport>
           <FunctionImport Name="dena_sp_BusquedaProdId" ReturnType="Collection(DataProductsModel.dena_sp_BusquedaProdId_Result)">
-          <Parameter Name="Id" Mode="In" Type="String" />
+            <Parameter Name="Id" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="dena_sp_BusquedaProdNom" ReturnType="Collection(DataProductsModel.dena_sp_BusquedaProdNom_Result)">
-          <Parameter Name="Nombre" Mode="In" Type="String" />
+            <Parameter Name="Nombre" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="dena_sp_InsertProd">
             <Parameter Name="IdType" Mode="In" Type="Int32" />
@@ -1603,17 +1732,49 @@ advertencia 6002: La tabla o vista 'DataProducts.sys.database_firewall_rules' no
             <Parameter Name="Keywords" Mode="In" Type="String" />
             <Parameter Name="DateUpdate" Mode="In" Type="DateTime" />
           </FunctionImport>
+          <FunctionImport Name="dena_sp_ModificarProd">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="idType" Mode="In" Type="Int32" />
+            <Parameter Name="idColor" Mode="In" Type="Int32" />
+            <Parameter Name="idBrand" Mode="In" Type="Int32" />
+            <Parameter Name="idProvider" Mode="In" Type="Int32" />
+            <Parameter Name="idCatalog" Mode="In" Type="Int32" />
+            <Parameter Name="Title" Mode="In" Type="String" />
+            <Parameter Name="Nombre" Mode="In" Type="String" />
+            <Parameter Name="Description" Mode="In" Type="String" />
+            <Parameter Name="Observations" Mode="In" Type="String" />
+            <Parameter Name="PriceDistributor" Mode="In" Type="Decimal" />
+            <Parameter Name="PriceClient" Mode="In" Type="Decimal" />
+            <Parameter Name="PriceMember" Mode="In" Type="Decimal" />
+            <Parameter Name="IsEnabled" Mode="In" Type="Boolean" />
+            <Parameter Name="Keywords" Mode="In" Type="String" />
+            <Parameter Name="DateUpdate" Mode="In" Type="DateTime" />
+          </FunctionImport>
           <FunctionImport Name="dena_sp_MostrarTodo" ReturnType="Collection(DataProductsModel.dena_sp_MostrarTodo_Result)" />
+          <FunctionImport Name="eumc1_getAllProviders" ReturnType="Collection(DataProductsModel.eumc1_getAllProviders_Result)" />
           <FunctionImport Name="eumc1_getProductByIdOrName" ReturnType="Collection(DataProductsModel.eumc1_getProductByIdOrName_Result)">
             <Parameter Name="Id" Mode="In" Type="Int32" />
             <Parameter Name="Nombre" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="FASV_DeleteLogic">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="FASV_FilterById" ReturnType="Collection(DataProductsModel.FASV_FilterById_Result)">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+          </FunctionImport>
           <FunctionImport Name="FASV1_FilterByTitle" ReturnType="Collection(DataProductsModel.FASV1_FilterByTitle_Result)">
-          <Parameter Name="Title" Mode="In" Type="String" />
+            <Parameter Name="Title" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="FASV1_GetAllProducts" ReturnType="Collection(DataProductsModel.FASV1_GetAllProducts_Result)" />
+          <FunctionImport Name="FAVV_AgregaImagen">
+            <Parameter Name="idProduct" Mode="In" Type="Int32" />
+            <Parameter Name="Descripcion" Mode="In" Type="String" />
+            <Parameter Name="Image" Mode="In" Type="Binary" />
+            <Parameter Name="DateUpdate" Mode="In" Type="DateTime" />
+            <Parameter Name="IsEnable" Mode="In" Type="Boolean" />
+          </FunctionImport>
           <FunctionImport Name="FAVV_BuscaNombrePorId" ReturnType="Collection(String)">
-          <Parameter Name="elId" Mode="In" Type="Int32" />
+            <Parameter Name="elId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="JEVJ1_ActualizaProducto">
             <Parameter Name="ProductId" Mode="In" Type="Int32" />
@@ -1634,13 +1795,13 @@ advertencia 6002: La tabla o vista 'DataProducts.sys.database_firewall_rules' no
             <Parameter Name="DataUpdate" Mode="In" Type="DateTime" />
           </FunctionImport>
           <FunctionImport Name="JEVJ1_BuscaProductoPorID" ReturnType="Collection(DataProductsModel.JEVJ1_BuscaProductoPorID_Result)">
-          <Parameter Name="ProductId" Mode="In" Type="Int32" />
+            <Parameter Name="ProductId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="JEVJ1_BuscaProductoPorNombre" ReturnType="Collection(DataProductsModel.JEVJ1_BuscaProductoPorNombre_Result)">
-          <Parameter Name="ProductName" Mode="In" Type="String" />
+            <Parameter Name="ProductName" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="JEVJ1_EliminaProductoPorID">
-          <Parameter Name="ProductId" Mode="In" Type="Int32" />
+            <Parameter Name="ProductId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="JEVJ1_InsertaNuevoProducto">
             <Parameter Name="IdType" Mode="In" Type="Int32" />
@@ -1664,6 +1825,11 @@ advertencia 6002: La tabla o vista 'DataProducts.sys.database_firewall_rules' no
             <Parameter Name="Nombre" Mode="In" Type="String" />
             <Parameter Name="Id" Mode="In" Type="Int32" />
           </FunctionImport>
+          <FunctionImport Name="JRCV1_GetColors" ReturnType="Collection(DataProductsModel.JRCV1_GetColors_Result)" />
+          <FunctionImport Name="JRCV1_GetImages" ReturnType="Collection(DataProductsModel.JRCV1_GetImages_Result)">
+            <Parameter Name="IdProduct" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="JRCV1_GetSizes" ReturnType="Collection(DataProductsModel.JRCV1_GetSizes_Result)" />
           <FunctionImport Name="JRCV1_InserNewProduct">
             <Parameter Name="IdType" Mode="In" Type="Int32" />
             <Parameter Name="IdColor" Mode="In" Type="Int32" />
@@ -1685,9 +1851,16 @@ advertencia 6002: La tabla o vista 'DataProducts.sys.database_firewall_rules' no
             <Parameter Name="Id" Mode="In" Type="Int32" />
             <Parameter Name="Nombre" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="JRCV1_UpdateProduct">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="IdColor" Mode="In" Type="Int32" />
+            <Parameter Name="IdCatalog" Mode="In" Type="Int32" />
+            <Parameter Name="Nombre" Mode="In" Type="String" />
+            <Parameter Name="Description" Mode="In" Type="String" />
+          </FunctionImport>
           <FunctionImport Name="LFGC1_AllProducts" ReturnType="Collection(DataProductsModel.LFGC1_AllProducts_Result)" />
           <FunctionImport Name="LFGC1_DeleteProductID">
-          <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="Id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="LFGC1_InsertProduct">
             <Parameter Name="IdType" Mode="In" Type="Int32" />
@@ -1707,10 +1880,10 @@ advertencia 6002: La tabla o vista 'DataProducts.sys.database_firewall_rules' no
             <Parameter Name="DataUpdate" Mode="In" Type="DateTime" />
           </FunctionImport>
           <FunctionImport Name="LFGC1_SearchProductID" ReturnType="Collection(DataProductsModel.LFGC1_SearchProductID_Result)">
-          <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="Id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="LFGC1_SearchProductName" ReturnType="Collection(DataProductsModel.LFGC1_SearchProductName_Result)">
-          <Parameter Name="ProductName" Mode="In" Type="String" />
+            <Parameter Name="ProductName" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="LFGC1_UpdateProduct">
             <Parameter Name="ProductId" Mode="In" Type="Int32" />
@@ -1730,17 +1903,42 @@ advertencia 6002: La tabla o vista 'DataProducts.sys.database_firewall_rules' no
             <Parameter Name="Keywords" Mode="In" Type="String" />
             <Parameter Name="DataUpdate" Mode="In" Type="DateTime" />
           </FunctionImport>
+          <FunctionImport Name="MPVI_SEARCH_ALL" ReturnType="Collection(DataProductsModel.MPVI_SEARCH_ALL_Result)" />
           <FunctionImport Name="MPVI_SEARCH_ID" ReturnType="Collection(DataProductsModel.MPVI_SEARCH_ID_Result)">
-          <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="ID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="MPVI_SEARCH_NOMBRE" ReturnType="Collection(DataProductsModel.MPVI_SEARCH_NOMBRE_Result)">
-          <Parameter Name="NOMBRE" Mode="In" Type="String" />
+            <Parameter Name="NOMBRE" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="NMRH_ID" ReturnType="Collection(DataProductsModel.NMRH_ID_Result)">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="NMRH_lOOK" ReturnType="Collection(DataProductsModel.NMRH_lOOK_Result)" />
+          <FunctionImport Name="NMRH_Nombre" ReturnType="Collection(DataProductsModel.NMRH_Nombre_Result)">
+            <Parameter Name="Nombre" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SEMD_AddShoes">
+            <Parameter Name="IdType" Mode="In" Type="Int32" />
+            <Parameter Name="IdColor" Mode="In" Type="Int32" />
+            <Parameter Name="IdBrand" Mode="In" Type="Int32" />
+            <Parameter Name="IdProvider" Mode="In" Type="Int32" />
+            <Parameter Name="IdCatalog" Mode="In" Type="Int32" />
+            <Parameter Name="Title" Mode="In" Type="String" />
+            <Parameter Name="Nombre" Mode="In" Type="String" />
+            <Parameter Name="Description" Mode="In" Type="String" />
+            <Parameter Name="Observations" Mode="In" Type="String" />
+            <Parameter Name="PriceDistributor" Mode="In" Type="Decimal" />
+            <Parameter Name="PriceClient" Mode="In" Type="Decimal" />
+            <Parameter Name="PriceMember" Mode="In" Type="Decimal" />
+            <Parameter Name="IsEnabled" Mode="In" Type="Boolean" />
+            <Parameter Name="Keywords" Mode="In" Type="String" />
+            <Parameter Name="DateUpdate" Mode="In" Type="DateTime" />
           </FunctionImport>
           <FunctionImport Name="SEMD_SearchById" ReturnType="Collection(DataProductsModel.SEMD_SearchById_Result)">
-          <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="Id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="SEMD_SearchByName" ReturnType="Collection(DataProductsModel.SEMD_SearchByName_Result)">
-          <Parameter Name="Nombre" Mode="In" Type="String" />
+            <Parameter Name="Nombre" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SEMD_SearchProducts" ReturnType="Collection(DataProductsModel.SEMD_SearchProducts_Result)">
             <Parameter Name="Id" Mode="In" Type="Int32" />
@@ -1777,122 +1975,30 @@ advertencia 6002: La tabla o vista 'DataProducts.sys.database_firewall_rules' no
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
-          <FunctionImport Name="FASV_FilterById" ReturnType="Collection(DataProductsModel.FASV_FilterById_Result)">
-          <Parameter Name="Id" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="ACOB_GetColors" ReturnType="Collection(DataProductsModel.ACOB_GetColors_Result)" />
-          <FunctionImport Name="ACOB_GetImages" ReturnType="Collection(DataProductsModel.ACOB_GetImages_Result)">
-          <Parameter Name="id" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="ACOB_GetSizes" ReturnType="Collection(DataProductsModel.ACOB_GetSizes_Result)" />
-          <FunctionImport Name="ADER1_GetImagesByProductID" ReturnType="Collection(Binary)">
-          <Parameter Name="ID" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="ADER1_GetSizesOfProduct" ReturnType="Collection(String)">
-          <Parameter Name="ID" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="BRTV_SearchName" ReturnType="Collection(DataProductsModel.BRTV_SearchName_Result)">
-          <Parameter Name="Name" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="eumc1_getAllProviders" ReturnType="Collection(DataProductsModel.eumc1_getAllProviders_Result)" />
-          <FunctionImport Name="JRCV1_GetColors" ReturnType="Collection(DataProductsModel.JRCV1_GetColors_Result)" />
-          <FunctionImport Name="MPVI_SEARCH_ALL" ReturnType="Collection(DataProductsModel.MPVI_SEARCH_ALL_Result)" />
-          <FunctionImport Name="BRTV_Insert">
-            <Parameter Name="IdType" Mode="In" Type="Int32" />
-            <Parameter Name="IdColor" Mode="In" Type="Int32" />
-            <Parameter Name="IdBrand" Mode="In" Type="Int32" />
-            <Parameter Name="IdProvider" Mode="In" Type="Int32" />
-            <Parameter Name="Title" Mode="In" Type="String" />
-            <Parameter Name="Nombre" Mode="In" Type="String" />
-            <Parameter Name="Description" Mode="In" Type="String" />
-            <Parameter Name="Observations" Mode="In" Type="String" />
-            <Parameter Name="PriceDistributor" Mode="In" Type="Decimal" />
-            <Parameter Name="PriceClient" Mode="In" Type="Decimal" />
-            <Parameter Name="PriceMember" Mode="In" Type="Decimal" />
-            <Parameter Name="IsEnabled" Mode="In" Type="Boolean" />
-            <Parameter Name="Keywords" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="JRCV1_GetSizes" ReturnType="Collection(DataProductsModel.JRCV1_GetSizes_Result)" />
-          <FunctionImport Name="JRCV1_UpdateProduct">
-            <Parameter Name="Id" Mode="In" Type="Int32" />
-            <Parameter Name="IdColor" Mode="In" Type="Int32" />
-            <Parameter Name="IdCatalog" Mode="In" Type="Int32" />
-            <Parameter Name="Nombre" Mode="In" Type="String" />
-            <Parameter Name="Description" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="SEMD_AddShoes">
-            <Parameter Name="IdType" Mode="In" Type="Int32" />
-            <Parameter Name="IdColor" Mode="In" Type="Int32" />
-            <Parameter Name="IdBrand" Mode="In" Type="Int32" />
-            <Parameter Name="IdProvider" Mode="In" Type="Int32" />
-            <Parameter Name="IdCatalog" Mode="In" Type="Int32" />
-            <Parameter Name="Title" Mode="In" Type="String" />
-            <Parameter Name="Nombre" Mode="In" Type="String" />
-            <Parameter Name="Description" Mode="In" Type="String" />
-            <Parameter Name="Observations" Mode="In" Type="String" />
-            <Parameter Name="PriceDistributor" Mode="In" Type="Decimal" />
-            <Parameter Name="PriceClient" Mode="In" Type="Decimal" />
-            <Parameter Name="PriceMember" Mode="In" Type="Decimal" />
-            <Parameter Name="IsEnabled" Mode="In" Type="Boolean" />
-            <Parameter Name="Keywords" Mode="In" Type="String" />
-            <Parameter Name="DateUpdate" Mode="In" Type="DateTime" />
-          </FunctionImport>
-          <FunctionImport Name="FASV_DeleteLogic">
-          <Parameter Name="Id" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="ACOB_InsertImages">
-            <Parameter Name="idProduct" Mode="In" Type="Int32" />
-            <Parameter Name="Descripcion" Mode="In" Type="String" />
-            <Parameter Name="Image" Mode="In" Type="Binary" />
-            <Parameter Name="DateUpdate" Mode="In" Type="DateTime" />
-            <Parameter Name="IsEnable" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="AVHM_Modificar">
-            <Parameter Name="Id" Mode="In" Type="Int32" />
-            <Parameter Name="idType" Mode="In" Type="Int32" />
-            <Parameter Name="idColor" Mode="In" Type="Int32" />
-            <Parameter Name="idBrand" Mode="In" Type="Int32" />
-            <Parameter Name="idProvider" Mode="In" Type="Int32" />
-            <Parameter Name="idCatalog" Mode="In" Type="Int32" />
-            <Parameter Name="Title" Mode="In" Type="String" />
-            <Parameter Name="Nombre" Mode="In" Type="String" />
-            <Parameter Name="Description" Mode="In" Type="String" />
-            <Parameter Name="Observations" Mode="In" Type="String" />
-            <Parameter Name="PriceDistributor" Mode="In" Type="Decimal" />
-            <Parameter Name="PriceClient" Mode="In" Type="Decimal" />
-            <Parameter Name="PriceMember" Mode="In" Type="Decimal" />
-            <Parameter Name="IsEnabled" Mode="In" Type="Boolean" />
-            <Parameter Name="Keywords" Mode="In" Type="String" />
-            <Parameter Name="DateUpdate" Mode="In" Type="DateTime" />
-          </FunctionImport>
-          <FunctionImport Name="CAOE_INSERTAR">
-            <Parameter Name="IdType" Mode="In" Type="Int32" />
-            <Parameter Name="IdColor" Mode="In" Type="Int32" />
-            <Parameter Name="IdBrand" Mode="In" Type="Int32" />
-            <Parameter Name="IdProvider" Mode="In" Type="Int32" />
-            <Parameter Name="IdCatalog" Mode="In" Type="Int32" />
-            <Parameter Name="Title" Mode="In" Type="String" />
-            <Parameter Name="Nombre" Mode="In" Type="String" />
-            <Parameter Name="Description" Mode="In" Type="String" />
-            <Parameter Name="Observations" Mode="In" Type="String" />
-            <Parameter Name="PriceDistributor" Mode="In" Type="Decimal" />
-            <Parameter Name="PriceClient" Mode="In" Type="Decimal" />
-            <Parameter Name="PriceMember" Mode="In" Type="Decimal" />
-            <Parameter Name="IsEnabled" Mode="In" Type="Boolean" />
-            <Parameter Name="Keywords" Mode="In" Type="String" />
-            <Parameter Name="DateUpdate" Mode="In" Type="DateTime" />
-          </FunctionImport>
-          <FunctionImport Name="FAVV_AgregaImagen">
-            <Parameter Name="idProduct" Mode="In" Type="Int32" />
-            <Parameter Name="Descripcion" Mode="In" Type="String" />
-            <Parameter Name="Image" Mode="In" Type="Binary" />
-            <Parameter Name="DateUpdate" Mode="In" Type="DateTime" />
-            <Parameter Name="IsEnable" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="JRCV1_GetImages" ReturnType="Collection(DataProductsModel.JRCV1_GetImages_Result)">
-          <Parameter Name="IdProduct" Mode="In" Type="Int32" />
-          </FunctionImport>
         </EntityContainer>
+        <ComplexType Name="ACOB_GetColors_Result">
+          <Property Type="Int32" Name="IdColor" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" />
+          <Property Type="String" Name="Description" Nullable="false" />
+          <Property Type="String" Name="HexaDecimal" Nullable="false" />
+          <Property Type="Boolean" Name="IsEnable" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="ACOB_GetImages_Result">
+          <Property Type="Int32" Name="IdImage" Nullable="false" />
+          <Property Type="Int32" Name="IdProduct" Nullable="false" />
+          <Property Type="String" Name="Decription" Nullable="true" />
+          <Property Type="Binary" Name="Image" Nullable="false" MaxLength="Max" />
+          <Property Type="DateTime" Name="DateUpdate" Nullable="false" Precision="23" />
+          <Property Type="Boolean" Name="IsEnabled" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="ACOB_GetSizes_Result">
+          <Property Type="Int32" Name="IdSize" Nullable="false" />
+          <Property Type="Int32" Name="IdType" Nullable="false" />
+          <Property Type="String" Name="Code" Nullable="false" />
+          <Property Type="String" Name="Unity" Nullable="false" />
+          <Property Type="String" Name="Description" Nullable="false" />
+          <Property Type="String" Name="Value" Nullable="false" />
+        </ComplexType>
         <ComplexType Name="ACOB_SearchByIdOrName_Result">
           <Property Type="Int32" Name="Id" Nullable="false" />
           <Property Type="Int32" Name="IdType" Nullable="true" />
@@ -1916,6 +2022,7 @@ advertencia 6002: La tabla o vista 'DataProducts.sys.database_firewall_rules' no
           <Property Type="String" Name="Nombre" Nullable="false" />
           <Property Type="String" Name="Description" Nullable="false" />
           <Property Type="Decimal" Name="PriceClient" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="HexaDecimal" Nullable="false" />
         </ComplexType>
         <ComplexType Name="AVHM_BusquedaID_Result">
           <Property Type="Int32" Name="Id" Nullable="false" />
@@ -1972,6 +2079,24 @@ advertencia 6002: La tabla o vista 'DataProducts.sys.database_firewall_rules' no
           <Property Type="DateTime" Name="DateUpdate" Nullable="true" Precision="23" />
         </ComplexType>
         <ComplexType Name="BRTV_SearchID_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Int32" Name="IdType" Nullable="true" />
+          <Property Type="Int32" Name="IdColor" Nullable="true" />
+          <Property Type="Int32" Name="IdBrand" Nullable="true" />
+          <Property Type="Int32" Name="IdProvider" Nullable="true" />
+          <Property Type="Int32" Name="IdCatalog" Nullable="true" />
+          <Property Type="String" Name="Title" Nullable="false" />
+          <Property Type="String" Name="Nombre" Nullable="false" />
+          <Property Type="String" Name="Description" Nullable="false" />
+          <Property Type="String" Name="Observations" Nullable="false" />
+          <Property Type="Decimal" Name="PriceDistributor" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="PriceClient" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="PriceMember" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Boolean" Name="IsEnabled" Nullable="false" />
+          <Property Type="String" Name="Keywords" Nullable="true" />
+          <Property Type="DateTime" Name="DateUpdate" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="BRTV_SearchName_Result">
           <Property Type="Int32" Name="Id" Nullable="false" />
           <Property Type="Int32" Name="IdType" Nullable="true" />
           <Property Type="Int32" Name="IdColor" Nullable="true" />
@@ -2061,13 +2186,45 @@ advertencia 6002: La tabla o vista 'DataProducts.sys.database_firewall_rules' no
           <Property Type="String" Name="Keywords" Nullable="true" />
           <Property Type="DateTime" Name="DateUpdate" Nullable="true" Precision="23" />
         </ComplexType>
+        <ComplexType Name="eumc1_getAllProviders_Result">
+          <Property Type="String" Name="Name" Nullable="false" />
+          <Property Type="Int32" Name="IdProvider" Nullable="false" />
+        </ComplexType>
         <ComplexType Name="eumc1_getProductByIdOrName_Result">
           <Property Type="Int32" Name="Id" Nullable="false" />
-          <Property Type="String" Name="Title" Nullable="false" />
-          <Property Type="Decimal" Name="PriceClient" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdType" Nullable="true" />
+          <Property Type="Int32" Name="IdColor" Nullable="true" />
           <Property Type="Int32" Name="IdBrand" Nullable="true" />
-          <Property Type="Int32" Name="IdCatalog" Nullable="true" />
           <Property Type="Int32" Name="IdProvider" Nullable="true" />
+          <Property Type="Int32" Name="IdCatalog" Nullable="true" />
+          <Property Type="String" Name="Title" Nullable="false" />
+          <Property Type="String" Name="Nombre" Nullable="false" />
+          <Property Type="String" Name="Description" Nullable="false" />
+          <Property Type="String" Name="Observations" Nullable="false" />
+          <Property Type="Decimal" Name="PriceDistributor" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="PriceClient" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="PriceMember" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Boolean" Name="IsEnabled" Nullable="false" />
+          <Property Type="String" Name="Keywords" Nullable="true" />
+          <Property Type="DateTime" Name="DateUpdate" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="FASV_FilterById_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Int32" Name="IdType" Nullable="true" />
+          <Property Type="Int32" Name="IdColor" Nullable="true" />
+          <Property Type="Int32" Name="IdBrand" Nullable="true" />
+          <Property Type="Int32" Name="IdProvider" Nullable="true" />
+          <Property Type="Int32" Name="IdCatalog" Nullable="true" />
+          <Property Type="String" Name="Title" Nullable="false" />
+          <Property Type="String" Name="Nombre" Nullable="false" />
+          <Property Type="String" Name="Description" Nullable="false" />
+          <Property Type="String" Name="Observations" Nullable="false" />
+          <Property Type="Decimal" Name="PriceDistributor" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="PriceClient" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="PriceMember" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Boolean" Name="IsEnabled" Nullable="false" />
+          <Property Type="String" Name="Keywords" Nullable="true" />
+          <Property Type="DateTime" Name="DateUpdate" Nullable="true" Precision="23" />
         </ComplexType>
         <ComplexType Name="FASV1_FilterByTitle_Result">
           <Property Type="Int32" Name="Id" Nullable="false" />
@@ -2159,6 +2316,29 @@ advertencia 6002: La tabla o vista 'DataProducts.sys.database_firewall_rules' no
           <Property Type="String" Name="Keywords" Nullable="true" />
           <Property Type="DateTime" Name="DateUpdate" Nullable="true" Precision="23" />
         </ComplexType>
+        <ComplexType Name="JRCV1_GetColors_Result">
+          <Property Type="Int32" Name="IdColor" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" />
+          <Property Type="String" Name="Description" Nullable="false" />
+          <Property Type="String" Name="HexaDecimal" Nullable="false" />
+          <Property Type="Boolean" Name="IsEnable" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="JRCV1_GetImages_Result">
+          <Property Type="Int32" Name="IdImage" Nullable="false" />
+          <Property Type="Int32" Name="IdProduct" Nullable="false" />
+          <Property Type="String" Name="Decription" Nullable="true" />
+          <Property Type="Binary" Name="Image" Nullable="false" MaxLength="Max" />
+          <Property Type="DateTime" Name="DateUpdate" Nullable="false" Precision="23" />
+          <Property Type="Boolean" Name="IsEnabled" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="JRCV1_GetSizes_Result">
+          <Property Type="Int32" Name="IdSize" Nullable="false" />
+          <Property Type="Int32" Name="IdType" Nullable="false" />
+          <Property Type="String" Name="Code" Nullable="false" />
+          <Property Type="String" Name="Unity" Nullable="false" />
+          <Property Type="String" Name="Description" Nullable="false" />
+          <Property Type="String" Name="Value" Nullable="false" />
+        </ComplexType>
         <ComplexType Name="JRCV1_SearchShoesProduct_Result">
           <Property Type="Int32" Name="Id" Nullable="false" />
           <Property Type="Int32" Name="IdType" Nullable="true" />
@@ -2231,6 +2411,24 @@ advertencia 6002: La tabla o vista 'DataProducts.sys.database_firewall_rules' no
           <Property Type="String" Name="Keywords" Nullable="true" />
           <Property Type="DateTime" Name="DateUpdate" Nullable="true" Precision="23" />
         </ComplexType>
+        <ComplexType Name="MPVI_SEARCH_ALL_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Int32" Name="IdType" Nullable="true" />
+          <Property Type="Int32" Name="IdColor" Nullable="true" />
+          <Property Type="Int32" Name="IdBrand" Nullable="true" />
+          <Property Type="Int32" Name="IdProvider" Nullable="true" />
+          <Property Type="Int32" Name="IdCatalog" Nullable="true" />
+          <Property Type="String" Name="Title" Nullable="false" />
+          <Property Type="String" Name="Nombre" Nullable="false" />
+          <Property Type="String" Name="Description" Nullable="false" />
+          <Property Type="String" Name="Observations" Nullable="false" />
+          <Property Type="Decimal" Name="PriceDistributor" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="PriceClient" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="PriceMember" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Boolean" Name="IsEnabled" Nullable="false" />
+          <Property Type="String" Name="Keywords" Nullable="true" />
+          <Property Type="DateTime" Name="DateUpdate" Nullable="true" Precision="23" />
+        </ComplexType>
         <ComplexType Name="MPVI_SEARCH_ID_Result">
           <Property Type="Int32" Name="Id" Nullable="false" />
           <Property Type="Int32" Name="IdType" Nullable="true" />
@@ -2250,6 +2448,60 @@ advertencia 6002: La tabla o vista 'DataProducts.sys.database_firewall_rules' no
           <Property Type="DateTime" Name="DateUpdate" Nullable="true" Precision="23" />
         </ComplexType>
         <ComplexType Name="MPVI_SEARCH_NOMBRE_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Int32" Name="IdType" Nullable="true" />
+          <Property Type="Int32" Name="IdColor" Nullable="true" />
+          <Property Type="Int32" Name="IdBrand" Nullable="true" />
+          <Property Type="Int32" Name="IdProvider" Nullable="true" />
+          <Property Type="Int32" Name="IdCatalog" Nullable="true" />
+          <Property Type="String" Name="Title" Nullable="false" />
+          <Property Type="String" Name="Nombre" Nullable="false" />
+          <Property Type="String" Name="Description" Nullable="false" />
+          <Property Type="String" Name="Observations" Nullable="false" />
+          <Property Type="Decimal" Name="PriceDistributor" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="PriceClient" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="PriceMember" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Boolean" Name="IsEnabled" Nullable="false" />
+          <Property Type="String" Name="Keywords" Nullable="true" />
+          <Property Type="DateTime" Name="DateUpdate" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="NMRH_ID_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Int32" Name="IdType" Nullable="true" />
+          <Property Type="Int32" Name="IdColor" Nullable="true" />
+          <Property Type="Int32" Name="IdBrand" Nullable="true" />
+          <Property Type="Int32" Name="IdProvider" Nullable="true" />
+          <Property Type="Int32" Name="IdCatalog" Nullable="true" />
+          <Property Type="String" Name="Title" Nullable="false" />
+          <Property Type="String" Name="Nombre" Nullable="false" />
+          <Property Type="String" Name="Description" Nullable="false" />
+          <Property Type="String" Name="Observations" Nullable="false" />
+          <Property Type="Decimal" Name="PriceDistributor" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="PriceClient" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="PriceMember" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Boolean" Name="IsEnabled" Nullable="false" />
+          <Property Type="String" Name="Keywords" Nullable="true" />
+          <Property Type="DateTime" Name="DateUpdate" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="NMRH_lOOK_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Int32" Name="IdType" Nullable="true" />
+          <Property Type="Int32" Name="IdColor" Nullable="true" />
+          <Property Type="Int32" Name="IdBrand" Nullable="true" />
+          <Property Type="Int32" Name="IdProvider" Nullable="true" />
+          <Property Type="Int32" Name="IdCatalog" Nullable="true" />
+          <Property Type="String" Name="Title" Nullable="false" />
+          <Property Type="String" Name="Nombre" Nullable="false" />
+          <Property Type="String" Name="Description" Nullable="false" />
+          <Property Type="String" Name="Observations" Nullable="false" />
+          <Property Type="Decimal" Name="PriceDistributor" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="PriceClient" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="PriceMember" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Boolean" Name="IsEnabled" Nullable="false" />
+          <Property Type="String" Name="Keywords" Nullable="true" />
+          <Property Type="DateTime" Name="DateUpdate" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="NMRH_Nombre_Result">
           <Property Type="Int32" Name="Id" Nullable="false" />
           <Property Type="Int32" Name="IdType" Nullable="true" />
           <Property Type="Int32" Name="IdColor" Nullable="true" />
@@ -2349,110 +2601,6 @@ advertencia 6002: La tabla o vista 'DataProducts.sys.database_firewall_rules' no
           <Property Type="Int32" Name="ID" Nullable="false" />
           <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
-        </ComplexType>
-        <ComplexType Name="FASV_FilterById_Result">
-          <Property Type="Int32" Name="Id" Nullable="false" />
-          <Property Type="Int32" Name="IdType" Nullable="true" />
-          <Property Type="Int32" Name="IdColor" Nullable="true" />
-          <Property Type="Int32" Name="IdBrand" Nullable="true" />
-          <Property Type="Int32" Name="IdProvider" Nullable="true" />
-          <Property Type="Int32" Name="IdCatalog" Nullable="true" />
-          <Property Type="String" Name="Title" Nullable="false" />
-          <Property Type="String" Name="Nombre" Nullable="false" />
-          <Property Type="String" Name="Description" Nullable="false" />
-          <Property Type="String" Name="Observations" Nullable="false" />
-          <Property Type="Decimal" Name="PriceDistributor" Nullable="true" Precision="18" Scale="0" />
-          <Property Type="Decimal" Name="PriceClient" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="Decimal" Name="PriceMember" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="Boolean" Name="IsEnabled" Nullable="false" />
-          <Property Type="String" Name="Keywords" Nullable="true" />
-          <Property Type="DateTime" Name="DateUpdate" Nullable="true" Precision="23" />
-        </ComplexType>
-        <ComplexType Name="ACOB_GetColors_Result">
-          <Property Type="Int32" Name="IdColor" Nullable="false" />
-          <Property Type="String" Name="Name" Nullable="false" />
-          <Property Type="String" Name="Description" Nullable="false" />
-          <Property Type="String" Name="HexaDecimal" Nullable="false" />
-          <Property Type="Boolean" Name="IsEnable" Nullable="false" />
-        </ComplexType>
-        <ComplexType Name="ACOB_GetImages_Result">
-          <Property Type="Int32" Name="IdImage" Nullable="false" />
-          <Property Type="Int32" Name="IdProduct" Nullable="false" />
-          <Property Type="String" Name="Decription" Nullable="false" />
-          <Property Type="Binary" Name="Image" Nullable="false" />
-          <Property Type="DateTime" Name="DateUpdate" Nullable="true" Precision="23" />
-          <Property Type="String" Name="IsEnabled" Nullable="false" />
-        </ComplexType>
-        <ComplexType Name="ACOB_GetSizes_Result">
-          <Property Type="Int32" Name="IdSize" Nullable="false" />
-          <Property Type="Int32" Name="IdType" Nullable="false" />
-          <Property Type="String" Name="Code" Nullable="false" />
-          <Property Type="String" Name="Unity" Nullable="false" />
-          <Property Type="String" Name="Description" Nullable="false" />
-          <Property Type="String" Name="Value" Nullable="false" />
-        </ComplexType>
-        <ComplexType Name="BRTV_SearchName_Result">
-          <Property Type="Int32" Name="Id" Nullable="false" />
-          <Property Type="Int32" Name="IdType" Nullable="true" />
-          <Property Type="Int32" Name="IdColor" Nullable="true" />
-          <Property Type="Int32" Name="IdBrand" Nullable="true" />
-          <Property Type="Int32" Name="IdProvider" Nullable="true" />
-          <Property Type="Int32" Name="IdCatalog" Nullable="true" />
-          <Property Type="String" Name="Title" Nullable="false" />
-          <Property Type="String" Name="Nombre" Nullable="false" />
-          <Property Type="String" Name="Description" Nullable="false" />
-          <Property Type="String" Name="Observations" Nullable="false" />
-          <Property Type="Decimal" Name="PriceDistributor" Nullable="true" Precision="18" Scale="0" />
-          <Property Type="Decimal" Name="PriceClient" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="Decimal" Name="PriceMember" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="Boolean" Name="IsEnabled" Nullable="false" />
-          <Property Type="String" Name="Keywords" Nullable="true" />
-          <Property Type="DateTime" Name="DateUpdate" Nullable="true" Precision="23" />
-        </ComplexType>
-        <ComplexType Name="eumc1_getAllProviders_Result">
-          <Property Type="String" Name="Name" Nullable="false" />
-          <Property Type="Int32" Name="IdProvider" Nullable="false" />
-        </ComplexType>
-        <ComplexType Name="JRCV1_GetColors_Result">
-          <Property Type="Int32" Name="IdColor" Nullable="false" />
-          <Property Type="String" Name="Name" Nullable="false" />
-          <Property Type="String" Name="Description" Nullable="false" />
-          <Property Type="String" Name="HexaDecimal" Nullable="false" />
-          <Property Type="Boolean" Name="IsEnable" Nullable="false" />
-        </ComplexType>
-        <ComplexType Name="MPVI_SEARCH_ALL_Result">
-          <Property Type="Int32" Name="Id" Nullable="false" />
-          <Property Type="Int32" Name="IdType" Nullable="true" />
-          <Property Type="Int32" Name="IdColor" Nullable="true" />
-          <Property Type="Int32" Name="IdBrand" Nullable="true" />
-          <Property Type="Int32" Name="IdProvider" Nullable="true" />
-          <Property Type="Int32" Name="IdCatalog" Nullable="true" />
-          <Property Type="String" Name="Title" Nullable="false" />
-          <Property Type="String" Name="Nombre" Nullable="false" />
-          <Property Type="String" Name="Description" Nullable="false" />
-          <Property Type="String" Name="Observations" Nullable="false" />
-          <Property Type="Decimal" Name="PriceDistributor" Nullable="true" Precision="18" Scale="0" />
-          <Property Type="Decimal" Name="PriceClient" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="Decimal" Name="PriceMember" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="Boolean" Name="IsEnabled" Nullable="false" />
-          <Property Type="String" Name="Keywords" Nullable="true" />
-          <Property Type="DateTime" Name="DateUpdate" Nullable="true" Precision="23" />
-        </ComplexType>
-        <ComplexType Name="JRCV1_GetSizes_Result">
-          <Property Type="Int32" Name="IdSize" Nullable="false" />
-          <Property Type="Int32" Name="IdType" Nullable="false" />
-          <Property Type="String" Name="Code" Nullable="false" />
-          <Property Type="String" Name="Unity" Nullable="false" />
-          <Property Type="String" Name="Description" Nullable="false" />
-          <Property Type="String" Name="Value" Nullable="false" />
-        </ComplexType>
-        <ComplexType Name="JRCV1_GetImages_Result">
-          <Property Type="Int32" Name="IdImage" Nullable="false" />
-          <Property Type="Int32" Name="IdProduct" Nullable="false" />
-          <Property Type="String" Name="Decription" Nullable="false" />
-          <Property Type="Binary" Name="Image" Nullable="false" />
-          <Property Type="DateTime" Name="DateUpdate" Nullable="true" Precision="23" />
-          <Property Type="String" Name="IsEnabled" Nullable="false" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -2686,7 +2834,45 @@ advertencia 6002: La tabla o vista 'DataProducts.sys.database_firewall_rules' no
             </EntityTypeMapping>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="ACOB_DeleteProd" FunctionName="DataProductsModel.Store.ACOB_DeleteProd" />
+          <FunctionImportMapping FunctionImportName="ACOB_GetColors" FunctionName="DataProductsModel.Store.ACOB_GetColors">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DataProductsModel.ACOB_GetColors_Result">
+                <ScalarProperty Name="IdColor" ColumnName="IdColor" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="HexaDecimal" ColumnName="HexaDecimal" />
+                <ScalarProperty Name="IsEnable" ColumnName="IsEnable" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ACOB_GetImages" FunctionName="DataProductsModel.Store.ACOB_GetImages">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DataProductsModel.ACOB_GetImages_Result">
+                <ScalarProperty Name="IdImage" ColumnName="IdImage" />
+                <ScalarProperty Name="IdProduct" ColumnName="IdProduct" />
+                <ScalarProperty Name="Decription" ColumnName="Decription" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="DateUpdate" ColumnName="DateUpdate" />
+                <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ACOB_GetSizes" FunctionName="DataProductsModel.Store.ACOB_GetSizes">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DataProductsModel.ACOB_GetSizes_Result">
+                <ScalarProperty Name="IdSize" ColumnName="IdSize" />
+                <ScalarProperty Name="IdType" ColumnName="IdType" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Unity" ColumnName="Unity" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ACOB_InsertColor" FunctionName="DataProductsModel.Store.ACOB_InsertColor" />
+          <FunctionImportMapping FunctionImportName="ACOB_InsertImages" FunctionName="DataProductsModel.Store.ACOB_InsertImages" />
           <FunctionImportMapping FunctionImportName="ACOB_InsertProduct" FunctionName="DataProductsModel.Store.ACOB_InsertProduct" />
+          <FunctionImportMapping FunctionImportName="ACOB_InsertSize" FunctionName="DataProductsModel.Store.ACOB_InsertSize" />
           <FunctionImportMapping FunctionImportName="ACOB_SearchByIdOrName" FunctionName="DataProductsModel.Store.ACOB_SearchByIdOrName">
             <ResultMapping>
               <ComplexTypeMapping TypeName="DataProductsModel.ACOB_SearchByIdOrName_Result">
@@ -2710,6 +2896,8 @@ advertencia 6002: La tabla o vista 'DataProducts.sys.database_firewall_rules' no
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="ACOB_UpdateProduct" FunctionName="DataProductsModel.Store.ACOB_UpdateProduct" />
+          <FunctionImportMapping FunctionImportName="ADER1_GetImagesByProductID" FunctionName="DataProductsModel.Store.ADER1_GetImagesByProductID" />
+          <FunctionImportMapping FunctionImportName="ADER1_GetSizesOfProduct" FunctionName="DataProductsModel.Store.ADER1_GetSizesOfProduct" />
           <FunctionImportMapping FunctionImportName="ADER1_SearchProducts" FunctionName="DataProductsModel.Store.ADER1_SearchProducts">
             <ResultMapping>
               <ComplexTypeMapping TypeName="DataProductsModel.ADER1_SearchProducts_Result">
@@ -2717,6 +2905,7 @@ advertencia 6002: La tabla o vista 'DataProducts.sys.database_firewall_rules' no
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="PriceClient" ColumnName="PriceClient" />
+                <ScalarProperty Name="HexaDecimal" ColumnName="HexaDecimal" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -2764,6 +2953,7 @@ advertencia 6002: La tabla o vista 'DataProducts.sys.database_firewall_rules' no
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="AVHM_Modificar" FunctionName="DataProductsModel.Store.AVHM_Modificar" />
           <FunctionImportMapping FunctionImportName="AVHM_MostrarProducts" FunctionName="DataProductsModel.Store.AVHM_MostrarProducts">
             <ResultMapping>
               <ComplexTypeMapping TypeName="DataProductsModel.AVHM_MostrarProducts_Result">
@@ -2787,9 +2977,33 @@ advertencia 6002: La tabla o vista 'DataProducts.sys.database_firewall_rules' no
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="AVHM_SP_InsertProd" FunctionName="DataProductsModel.Store.AVHM_SP_InsertProd" />
+          <FunctionImportMapping FunctionImportName="BRTV_Delete" FunctionName="DataProductsModel.Store.BRTV_Delete" />
+          <FunctionImportMapping FunctionImportName="BRTV_Insert" FunctionName="DataProductsModel.Store.BRTV_Insert" />
           <FunctionImportMapping FunctionImportName="BRTV_SearchID" FunctionName="DataProductsModel.Store.BRTV_SearchID">
             <ResultMapping>
               <ComplexTypeMapping TypeName="DataProductsModel.BRTV_SearchID_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdType" ColumnName="IdType" />
+                <ScalarProperty Name="IdColor" ColumnName="IdColor" />
+                <ScalarProperty Name="IdBrand" ColumnName="IdBrand" />
+                <ScalarProperty Name="IdProvider" ColumnName="IdProvider" />
+                <ScalarProperty Name="IdCatalog" ColumnName="IdCatalog" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Observations" ColumnName="Observations" />
+                <ScalarProperty Name="PriceDistributor" ColumnName="PriceDistributor" />
+                <ScalarProperty Name="PriceClient" ColumnName="PriceClient" />
+                <ScalarProperty Name="PriceMember" ColumnName="PriceMember" />
+                <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
+                <ScalarProperty Name="Keywords" ColumnName="Keywords" />
+                <ScalarProperty Name="DateUpdate" ColumnName="DateUpdate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="BRTV_SearchName" FunctionName="DataProductsModel.Store.BRTV_SearchName">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DataProductsModel.BRTV_SearchName_Result">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="IdType" ColumnName="IdType" />
                 <ScalarProperty Name="IdColor" ColumnName="IdColor" />
@@ -2831,6 +3045,7 @@ advertencia 6002: La tabla o vista 'DataProducts.sys.database_firewall_rules' no
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="CAOE_INSERTAR" FunctionName="DataProductsModel.Store.CAOE_INSERTAR" />
           <FunctionImportMapping FunctionImportName="dena_sp_BusquedaProdId" FunctionName="DataProductsModel.Store.dena_sp_BusquedaProdId">
             <ResultMapping>
               <ComplexTypeMapping TypeName="DataProductsModel.dena_sp_BusquedaProdId_Result">
@@ -2876,6 +3091,7 @@ advertencia 6002: La tabla o vista 'DataProducts.sys.database_firewall_rules' no
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="dena_sp_InsertProd" FunctionName="DataProductsModel.Store.dena_sp_InsertProd" />
+          <FunctionImportMapping FunctionImportName="dena_sp_ModificarProd" FunctionName="DataProductsModel.Store.dena_sp_ModificarProd" />
           <FunctionImportMapping FunctionImportName="dena_sp_MostrarTodo" FunctionName="DataProductsModel.Store.dena_sp_MostrarTodo">
             <ResultMapping>
               <ComplexTypeMapping TypeName="DataProductsModel.dena_sp_MostrarTodo_Result">
@@ -2898,15 +3114,56 @@ advertencia 6002: La tabla o vista 'DataProducts.sys.database_firewall_rules' no
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="eumc1_getAllProviders" FunctionName="DataProductsModel.Store.eumc1_getAllProviders">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DataProductsModel.eumc1_getAllProviders_Result">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IdProvider" ColumnName="IdProvider" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="eumc1_getProductByIdOrName" FunctionName="DataProductsModel.Store.eumc1_getProductByIdOrName">
             <ResultMapping>
               <ComplexTypeMapping TypeName="DataProductsModel.eumc1_getProductByIdOrName_Result">
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="PriceClient" ColumnName="PriceClient" />
+                <ScalarProperty Name="IdType" ColumnName="IdType" />
+                <ScalarProperty Name="IdColor" ColumnName="IdColor" />
                 <ScalarProperty Name="IdBrand" ColumnName="IdBrand" />
-                <ScalarProperty Name="IdCatalog" ColumnName="IdCatalog" />
                 <ScalarProperty Name="IdProvider" ColumnName="IdProvider" />
+                <ScalarProperty Name="IdCatalog" ColumnName="IdCatalog" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Observations" ColumnName="Observations" />
+                <ScalarProperty Name="PriceDistributor" ColumnName="PriceDistributor" />
+                <ScalarProperty Name="PriceClient" ColumnName="PriceClient" />
+                <ScalarProperty Name="PriceMember" ColumnName="PriceMember" />
+                <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
+                <ScalarProperty Name="Keywords" ColumnName="Keywords" />
+                <ScalarProperty Name="DateUpdate" ColumnName="DateUpdate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="FASV_DeleteLogic" FunctionName="DataProductsModel.Store.FASV_DeleteLogic" />
+          <FunctionImportMapping FunctionImportName="FASV_FilterById" FunctionName="DataProductsModel.Store.FASV_FilterById">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DataProductsModel.FASV_FilterById_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdType" ColumnName="IdType" />
+                <ScalarProperty Name="IdColor" ColumnName="IdColor" />
+                <ScalarProperty Name="IdBrand" ColumnName="IdBrand" />
+                <ScalarProperty Name="IdProvider" ColumnName="IdProvider" />
+                <ScalarProperty Name="IdCatalog" ColumnName="IdCatalog" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Observations" ColumnName="Observations" />
+                <ScalarProperty Name="PriceDistributor" ColumnName="PriceDistributor" />
+                <ScalarProperty Name="PriceClient" ColumnName="PriceClient" />
+                <ScalarProperty Name="PriceMember" ColumnName="PriceMember" />
+                <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
+                <ScalarProperty Name="Keywords" ColumnName="Keywords" />
+                <ScalarProperty Name="DateUpdate" ColumnName="DateUpdate" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -2954,6 +3211,7 @@ advertencia 6002: La tabla o vista 'DataProducts.sys.database_firewall_rules' no
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="FAVV_AgregaImagen" FunctionName="DataProductsModel.Store.FAVV_AgregaImagen" />
           <FunctionImportMapping FunctionImportName="FAVV_BuscaNombrePorId" FunctionName="DataProductsModel.Store.FAVV_BuscaNombrePorId" />
           <FunctionImportMapping FunctionImportName="JEVJ1_ActualizaProducto" FunctionName="DataProductsModel.Store.JEVJ1_ActualizaProducto" />
           <FunctionImportMapping FunctionImportName="JEVJ1_BuscaProductoPorID" FunctionName="DataProductsModel.Store.JEVJ1_BuscaProductoPorID">
@@ -3025,6 +3283,41 @@ advertencia 6002: La tabla o vista 'DataProducts.sys.database_firewall_rules' no
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="JRCV1_DeleteLogicIsEnabled" FunctionName="DataProductsModel.Store.JRCV1_DeleteLogicIsEnabled" />
+          <FunctionImportMapping FunctionImportName="JRCV1_GetColors" FunctionName="DataProductsModel.Store.JRCV1_GetColors">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DataProductsModel.JRCV1_GetColors_Result">
+                <ScalarProperty Name="IdColor" ColumnName="IdColor" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="HexaDecimal" ColumnName="HexaDecimal" />
+                <ScalarProperty Name="IsEnable" ColumnName="IsEnable" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="JRCV1_GetImages" FunctionName="DataProductsModel.Store.JRCV1_GetImages">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DataProductsModel.JRCV1_GetImages_Result">
+                <ScalarProperty Name="IdImage" ColumnName="IdImage" />
+                <ScalarProperty Name="IdProduct" ColumnName="IdProduct" />
+                <ScalarProperty Name="Decription" ColumnName="Decription" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="DateUpdate" ColumnName="DateUpdate" />
+                <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="JRCV1_GetSizes" FunctionName="DataProductsModel.Store.JRCV1_GetSizes">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DataProductsModel.JRCV1_GetSizes_Result">
+                <ScalarProperty Name="IdSize" ColumnName="IdSize" />
+                <ScalarProperty Name="IdType" ColumnName="IdType" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Unity" ColumnName="Unity" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="JRCV1_InserNewProduct" FunctionName="DataProductsModel.Store.JRCV1_InserNewProduct" />
           <FunctionImportMapping FunctionImportName="JRCV1_SearchShoesProduct" FunctionName="DataProductsModel.Store.JRCV1_SearchShoesProduct">
             <ResultMapping>
@@ -3048,6 +3341,7 @@ advertencia 6002: La tabla o vista 'DataProducts.sys.database_firewall_rules' no
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="JRCV1_UpdateProduct" FunctionName="DataProductsModel.Store.JRCV1_UpdateProduct" />
           <FunctionImportMapping FunctionImportName="LFGC1_AllProducts" FunctionName="DataProductsModel.Store.LFGC1_AllProducts">
             <ResultMapping>
               <ComplexTypeMapping TypeName="DataProductsModel.LFGC1_AllProducts_Result">
@@ -3117,6 +3411,28 @@ advertencia 6002: La tabla o vista 'DataProducts.sys.database_firewall_rules' no
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="LFGC1_UpdateProduct" FunctionName="DataProductsModel.Store.LFGC1_UpdateProduct" />
+          <FunctionImportMapping FunctionImportName="MPVI_SEARCH_ALL" FunctionName="DataProductsModel.Store.MPVI_SEARCH_ALL">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DataProductsModel.MPVI_SEARCH_ALL_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdType" ColumnName="IdType" />
+                <ScalarProperty Name="IdColor" ColumnName="IdColor" />
+                <ScalarProperty Name="IdBrand" ColumnName="IdBrand" />
+                <ScalarProperty Name="IdProvider" ColumnName="IdProvider" />
+                <ScalarProperty Name="IdCatalog" ColumnName="IdCatalog" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Observations" ColumnName="Observations" />
+                <ScalarProperty Name="PriceDistributor" ColumnName="PriceDistributor" />
+                <ScalarProperty Name="PriceClient" ColumnName="PriceClient" />
+                <ScalarProperty Name="PriceMember" ColumnName="PriceMember" />
+                <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
+                <ScalarProperty Name="Keywords" ColumnName="Keywords" />
+                <ScalarProperty Name="DateUpdate" ColumnName="DateUpdate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="MPVI_SEARCH_ID" FunctionName="DataProductsModel.Store.MPVI_SEARCH_ID">
             <ResultMapping>
               <ComplexTypeMapping TypeName="DataProductsModel.MPVI_SEARCH_ID_Result">
@@ -3161,6 +3477,73 @@ advertencia 6002: La tabla o vista 'DataProducts.sys.database_firewall_rules' no
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="NMRH_ID" FunctionName="DataProductsModel.Store.NMRH_ID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DataProductsModel.NMRH_ID_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdType" ColumnName="IdType" />
+                <ScalarProperty Name="IdColor" ColumnName="IdColor" />
+                <ScalarProperty Name="IdBrand" ColumnName="IdBrand" />
+                <ScalarProperty Name="IdProvider" ColumnName="IdProvider" />
+                <ScalarProperty Name="IdCatalog" ColumnName="IdCatalog" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Observations" ColumnName="Observations" />
+                <ScalarProperty Name="PriceDistributor" ColumnName="PriceDistributor" />
+                <ScalarProperty Name="PriceClient" ColumnName="PriceClient" />
+                <ScalarProperty Name="PriceMember" ColumnName="PriceMember" />
+                <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
+                <ScalarProperty Name="Keywords" ColumnName="Keywords" />
+                <ScalarProperty Name="DateUpdate" ColumnName="DateUpdate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="NMRH_lOOK" FunctionName="DataProductsModel.Store.NMRH_lOOK">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DataProductsModel.NMRH_lOOK_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdType" ColumnName="IdType" />
+                <ScalarProperty Name="IdColor" ColumnName="IdColor" />
+                <ScalarProperty Name="IdBrand" ColumnName="IdBrand" />
+                <ScalarProperty Name="IdProvider" ColumnName="IdProvider" />
+                <ScalarProperty Name="IdCatalog" ColumnName="IdCatalog" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Observations" ColumnName="Observations" />
+                <ScalarProperty Name="PriceDistributor" ColumnName="PriceDistributor" />
+                <ScalarProperty Name="PriceClient" ColumnName="PriceClient" />
+                <ScalarProperty Name="PriceMember" ColumnName="PriceMember" />
+                <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
+                <ScalarProperty Name="Keywords" ColumnName="Keywords" />
+                <ScalarProperty Name="DateUpdate" ColumnName="DateUpdate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="NMRH_Nombre" FunctionName="DataProductsModel.Store.NMRH_Nombre">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DataProductsModel.NMRH_Nombre_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdType" ColumnName="IdType" />
+                <ScalarProperty Name="IdColor" ColumnName="IdColor" />
+                <ScalarProperty Name="IdBrand" ColumnName="IdBrand" />
+                <ScalarProperty Name="IdProvider" ColumnName="IdProvider" />
+                <ScalarProperty Name="IdCatalog" ColumnName="IdCatalog" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Observations" ColumnName="Observations" />
+                <ScalarProperty Name="PriceDistributor" ColumnName="PriceDistributor" />
+                <ScalarProperty Name="PriceClient" ColumnName="PriceClient" />
+                <ScalarProperty Name="PriceMember" ColumnName="PriceMember" />
+                <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
+                <ScalarProperty Name="Keywords" ColumnName="Keywords" />
+                <ScalarProperty Name="DateUpdate" ColumnName="DateUpdate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SEMD_AddShoes" FunctionName="DataProductsModel.Store.SEMD_AddShoes" />
           <FunctionImportMapping FunctionImportName="SEMD_SearchById" FunctionName="DataProductsModel.Store.SEMD_SearchById">
             <ResultMapping>
               <ComplexTypeMapping TypeName="DataProductsModel.SEMD_SearchById_Result">
@@ -3273,160 +3656,6 @@ advertencia 6002: La tabla o vista 'DataProducts.sys.database_firewall_rules' no
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="DataProductsModel.Store.sp_renamediagram" />
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="DataProductsModel.Store.sp_upgraddiagrams" />
-          <FunctionImportMapping FunctionImportName="FASV_FilterById" FunctionName="DataProductsModel.Store.FASV_FilterById">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="DataProductsModel.FASV_FilterById_Result">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="IdType" ColumnName="IdType" />
-                <ScalarProperty Name="IdColor" ColumnName="IdColor" />
-                <ScalarProperty Name="IdBrand" ColumnName="IdBrand" />
-                <ScalarProperty Name="IdProvider" ColumnName="IdProvider" />
-                <ScalarProperty Name="IdCatalog" ColumnName="IdCatalog" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Observations" ColumnName="Observations" />
-                <ScalarProperty Name="PriceDistributor" ColumnName="PriceDistributor" />
-                <ScalarProperty Name="PriceClient" ColumnName="PriceClient" />
-                <ScalarProperty Name="PriceMember" ColumnName="PriceMember" />
-                <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
-                <ScalarProperty Name="Keywords" ColumnName="Keywords" />
-                <ScalarProperty Name="DateUpdate" ColumnName="DateUpdate" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="ACOB_GetColors" FunctionName="DataProductsModel.Store.ACOB_GetColors">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="DataProductsModel.ACOB_GetColors_Result">
-                <ScalarProperty Name="IdColor" ColumnName="IdColor" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="HexaDecimal" ColumnName="HexaDecimal" />
-                <ScalarProperty Name="IsEnable" ColumnName="IsEnable" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="ACOB_GetImages" FunctionName="DataProductsModel.Store.ACOB_GetImages">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="DataProductsModel.ACOB_GetImages_Result">
-                <ScalarProperty Name="IdImage" ColumnName="IdImage" />
-                <ScalarProperty Name="IdProduct" ColumnName="IdProduct" />
-                <ScalarProperty Name="Decription" ColumnName="Decription" />
-                <ScalarProperty Name="Image" ColumnName="Image" />
-                <ScalarProperty Name="DateUpdate" ColumnName="DateUpdate" />
-                <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="ACOB_GetSizes" FunctionName="DataProductsModel.Store.ACOB_GetSizes">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="DataProductsModel.ACOB_GetSizes_Result">
-                <ScalarProperty Name="IdSize" ColumnName="IdSize" />
-                <ScalarProperty Name="IdType" ColumnName="IdType" />
-                <ScalarProperty Name="Code" ColumnName="Code" />
-                <ScalarProperty Name="Unity" ColumnName="Unity" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Value" ColumnName="Value" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="ADER1_GetImagesByProductID" FunctionName="DataProductsModel.Store.ADER1_GetImagesByProductID" />
-          <FunctionImportMapping FunctionImportName="ADER1_GetSizesOfProduct" FunctionName="DataProductsModel.Store.ADER1_GetSizesOfProduct" />
-          <FunctionImportMapping FunctionImportName="BRTV_SearchName" FunctionName="DataProductsModel.Store.BRTV_SearchName">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="DataProductsModel.BRTV_SearchName_Result">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="IdType" ColumnName="IdType" />
-                <ScalarProperty Name="IdColor" ColumnName="IdColor" />
-                <ScalarProperty Name="IdBrand" ColumnName="IdBrand" />
-                <ScalarProperty Name="IdProvider" ColumnName="IdProvider" />
-                <ScalarProperty Name="IdCatalog" ColumnName="IdCatalog" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Observations" ColumnName="Observations" />
-                <ScalarProperty Name="PriceDistributor" ColumnName="PriceDistributor" />
-                <ScalarProperty Name="PriceClient" ColumnName="PriceClient" />
-                <ScalarProperty Name="PriceMember" ColumnName="PriceMember" />
-                <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
-                <ScalarProperty Name="Keywords" ColumnName="Keywords" />
-                <ScalarProperty Name="DateUpdate" ColumnName="DateUpdate" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="eumc1_getAllProviders" FunctionName="DataProductsModel.Store.eumc1_getAllProviders">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="DataProductsModel.eumc1_getAllProviders_Result">
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="IdProvider" ColumnName="IdProvider" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="JRCV1_GetColors" FunctionName="DataProductsModel.Store.JRCV1_GetColors">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="DataProductsModel.JRCV1_GetColors_Result">
-                <ScalarProperty Name="IdColor" ColumnName="IdColor" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="HexaDecimal" ColumnName="HexaDecimal" />
-                <ScalarProperty Name="IsEnable" ColumnName="IsEnable" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="MPVI_SEARCH_ALL" FunctionName="DataProductsModel.Store.MPVI_SEARCH_ALL">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="DataProductsModel.MPVI_SEARCH_ALL_Result">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="IdType" ColumnName="IdType" />
-                <ScalarProperty Name="IdColor" ColumnName="IdColor" />
-                <ScalarProperty Name="IdBrand" ColumnName="IdBrand" />
-                <ScalarProperty Name="IdProvider" ColumnName="IdProvider" />
-                <ScalarProperty Name="IdCatalog" ColumnName="IdCatalog" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Observations" ColumnName="Observations" />
-                <ScalarProperty Name="PriceDistributor" ColumnName="PriceDistributor" />
-                <ScalarProperty Name="PriceClient" ColumnName="PriceClient" />
-                <ScalarProperty Name="PriceMember" ColumnName="PriceMember" />
-                <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
-                <ScalarProperty Name="Keywords" ColumnName="Keywords" />
-                <ScalarProperty Name="DateUpdate" ColumnName="DateUpdate" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="BRTV_Insert" FunctionName="DataProductsModel.Store.BRTV_Insert" />
-          <FunctionImportMapping FunctionImportName="JRCV1_GetSizes" FunctionName="DataProductsModel.Store.JRCV1_GetSizes">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="DataProductsModel.JRCV1_GetSizes_Result">
-                <ScalarProperty Name="IdSize" ColumnName="IdSize" />
-                <ScalarProperty Name="IdType" ColumnName="IdType" />
-                <ScalarProperty Name="Code" ColumnName="Code" />
-                <ScalarProperty Name="Unity" ColumnName="Unity" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Value" ColumnName="Value" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="JRCV1_UpdateProduct" FunctionName="DataProductsModel.Store.JRCV1_UpdateProduct" />
-          <FunctionImportMapping FunctionImportName="SEMD_AddShoes" FunctionName="DataProductsModel.Store.SEMD_AddShoes" />
-          <FunctionImportMapping FunctionImportName="FASV_DeleteLogic" FunctionName="DataProductsModel.Store.FASV_DeleteLogic" />
-          <FunctionImportMapping FunctionImportName="ACOB_InsertImages" FunctionName="DataProductsModel.Store.ACOB_InsertImages" />
-          <FunctionImportMapping FunctionImportName="AVHM_Modificar" FunctionName="DataProductsModel.Store.AVHM_Modificar" />
-          <FunctionImportMapping FunctionImportName="CAOE_INSERTAR" FunctionName="DataProductsModel.Store.CAOE_INSERTAR" />
-          <FunctionImportMapping FunctionImportName="FAVV_AgregaImagen" FunctionName="DataProductsModel.Store.FAVV_AgregaImagen" />
-          <FunctionImportMapping FunctionImportName="JRCV1_GetImages" FunctionName="DataProductsModel.Store.JRCV1_GetImages">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="DataProductsModel.JRCV1_GetImages_Result">
-                <ScalarProperty Name="IdImage" ColumnName="IdImage" />
-                <ScalarProperty Name="IdProduct" ColumnName="IdProduct" />
-                <ScalarProperty Name="Decription" ColumnName="Decription" />
-                <ScalarProperty Name="Image" ColumnName="Image" />
-                <ScalarProperty Name="DateUpdate" ColumnName="DateUpdate" />
-                <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

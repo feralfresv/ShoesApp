@@ -17,5 +17,6 @@ namespace CDatos
         public string Nombre { get; set; }
         public string Description { get; set; }
         public decimal PriceClient { get; set; }
+        public string HexaDecimal { get; set; }
     }
 }
