@@ -27,10 +27,14 @@ namespace CNegocio
             return BsProd.FiltroId(id);
         }
 
-        public List<FASV1_FilterByTitle_Result> FiltroTitle(string title)
+        public List<FASV1_FilterByTitle_Result> FiltroTitle(string nombre)
         {
-            return BsProd.FiltroTitle(title);
+            return BsProd.FiltroTitle(nombre);
         }
 
+        public  void EliminarId(int id)
+        {
+            BsProd.DeleteLogic(id);
+        }
     }
 }

@@ -39,6 +39,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.Button_BsrID = new System.Windows.Forms.Button();
             this.Button_Actualizar = new System.Windows.Forms.Button();
+            this.TextBox_DeleteId = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -99,12 +100,13 @@
             // 
             // Button_Eliminar
             // 
-            this.Button_Eliminar.Location = new System.Drawing.Point(813, 105);
+            this.Button_Eliminar.Location = new System.Drawing.Point(831, 104);
             this.Button_Eliminar.Name = "Button_Eliminar";
-            this.Button_Eliminar.Size = new System.Drawing.Size(121, 45);
+            this.Button_Eliminar.Size = new System.Drawing.Size(121, 59);
             this.Button_Eliminar.TabIndex = 6;
-            this.Button_Eliminar.Text = "Eliminar";
+            this.Button_Eliminar.Text = "Eliminar por ID:";
             this.Button_Eliminar.UseVisualStyleBackColor = true;
+            this.Button_Eliminar.Click += new System.EventHandler(this.Button_Eliminar_Click);
             // 
             // TextBox_BscID
             // 
@@ -136,19 +138,29 @@
             // 
             // Button_Actualizar
             // 
-            this.Button_Actualizar.Location = new System.Drawing.Point(552, 376);
+            this.Button_Actualizar.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.Button_Actualizar.Location = new System.Drawing.Point(645, 429);
             this.Button_Actualizar.Name = "Button_Actualizar";
             this.Button_Actualizar.Size = new System.Drawing.Size(116, 62);
             this.Button_Actualizar.TabIndex = 10;
             this.Button_Actualizar.Text = "Actualizar";
-            this.Button_Actualizar.UseVisualStyleBackColor = true;
+            this.Button_Actualizar.UseVisualStyleBackColor = false;
             this.Button_Actualizar.Click += new System.EventHandler(this.Button_Actualizar_Click);
+            // 
+            // TextBox_DeleteId
+            // 
+            this.TextBox_DeleteId.Location = new System.Drawing.Point(958, 124);
+            this.TextBox_DeleteId.Name = "TextBox_DeleteId";
+            this.TextBox_DeleteId.Size = new System.Drawing.Size(125, 26);
+            this.TextBox_DeleteId.TabIndex = 11;
+            this.TextBox_DeleteId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_DeleteId_KeyPress);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1383, 450);
+            this.ClientSize = new System.Drawing.Size(1383, 494);
+            this.Controls.Add(this.TextBox_DeleteId);
             this.Controls.Add(this.Button_Actualizar);
             this.Controls.Add(this.Button_BsrID);
             this.Controls.Add(this.button1);
@@ -182,6 +194,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button Button_BsrID;
         private System.Windows.Forms.Button Button_Actualizar;
+        private System.Windows.Forms.TextBox TextBox_DeleteId;
     }
 }
 

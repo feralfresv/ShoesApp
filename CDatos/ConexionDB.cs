@@ -20,8 +20,8 @@ namespace CDatos
             try
             {
                 using (DataProductsEntities dbProd = new DataProductsEntities()) //Aqui ya se ahce la conexion 
-                {
-#region
+                {              
+                                                                                                             #region
                     //List<ProductosDatos> QueryAll = (from n in dbCntexto.Products
                     //                                 select new ProductosDatos
                     //                                 {
@@ -49,20 +49,20 @@ namespace CDatos
                     {
                         FASV1_GetAllProducts_Result m = new FASV1_GetAllProducts_Result();
                         {
-                            m.Id = n.Id;
+                            m.Id = n.Id; //--
                             m.IdType = n.IdType;
-                            m.IdColor = n.IdColor;
-                            m.IdBrand = n.IdBrand;
+                            m.IdColor = n.IdColor;//--
+                            m.IdBrand = n.IdBrand;//--
                             m.IdProvider = n.IdProvider;
-                            m.IdCatalog = n.IdCatalog;
-                            m.Title = n.Title;
+                            m.IdCatalog = n.IdCatalog;//--
+                            m.Title = n.Title;//--
                             m.Nombre = n.Nombre;
                             m.Description = n.Description;
                             m.Observations = n.Observations;
                             m.PriceDistributor = n.PriceDistributor;
                             m.PriceClient = n.PriceClient;
                             m.PriceMember = n.PriceMember;
-                            m.IsEnabled = n.IsEnabled;
+                            m.IsEnabled = n.IsEnabled;//--
                             m.Keywords = n.Keywords;
                             m.DateUpdate = n.DateUpdate;
                             listProducts.Add(m);
@@ -114,33 +114,19 @@ namespace CDatos
             }
             catch (Exception)
             {
-
                 throw;
             }
 #endregion
         }
 
-        public List<FASV1_FilterByTitle_Result> FiltroTitle(string Title)
-        {//FilterByTitle
+        public List<FASV1_FilterByTitle_Result> FiltroTitle(string nombre)
+        {//FilterByNombre
 #region
             try
             {
                 List<FASV1_FilterByTitle_Result> listTitle = new List<FASV1_FilterByTitle_Result>();
-                foreach (var n in fff.FASV1_FilterByTitle(Title))
-                {
-                    //Mostrar registros:
-
-                    //var charrray = n.Title.ToCharArray();
-                    //Boolean isContained = false;
-                    //foreach (var item in charrray)
-                    //{
-                    //    if (Title.Contains((item)))
-                    //    {
-
-                    //        isContained = true;   
-                    //    }
-                    //}
-
+                foreach (var n in fff.FASV1_FilterByTitle(nombre))
+                {                
                         FASV1_FilterByTitle_Result m = new FASV1_FilterByTitle_Result();
                         {
                             m.Id = n.Id;
@@ -166,20 +152,24 @@ namespace CDatos
             }
             catch (Exception)
             {
-
                 throw;
             }
-            #endregion
+#endregion
         }
 
         public void  DeleteLogic(int id)
-        {
-            fff.FASV_DeleteLogic(id);
+        {//FilterDeleteLogic
+#region
+            try
+            {
+                fff.FASV_DeleteLogic(id);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+#endregion
         }
-
-
-
-
 
     }
 }

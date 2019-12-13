@@ -34,6 +34,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.TextBox_DeleteId = new System.Windows.Forms.TextBox();
+            this.TextBox_DescProduc = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // TextBox_BscNombre
@@ -87,17 +89,35 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(426, 208);
+            this.label5.Location = new System.Drawing.Point(426, 207);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(315, 29);
             this.label5.TabIndex = 9;
             this.label5.Text = "Descripción del Producto:";
+            // 
+            // TextBox_DeleteId
+            // 
+            this.TextBox_DeleteId.Location = new System.Drawing.Point(477, 79);
+            this.TextBox_DeleteId.Name = "TextBox_DeleteId";
+            this.TextBox_DeleteId.Size = new System.Drawing.Size(125, 26);
+            this.TextBox_DeleteId.TabIndex = 12;
+            this.TextBox_DeleteId.TextChanged += new System.EventHandler(this.TextBox_DeleteId_TextChanged);
+            this.TextBox_DeleteId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_DeleteId_KeyPress);
+            // 
+            // TextBox_DescProduc
+            // 
+            this.TextBox_DescProduc.Location = new System.Drawing.Point(431, 249);
+            this.TextBox_DescProduc.Name = "TextBox_DescProduc";
+            this.TextBox_DescProduc.Size = new System.Drawing.Size(239, 26);
+            this.TextBox_DescProduc.TabIndex = 13;
             // 
             // AgregarProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.TextBox_DescProduc);
+            this.Controls.Add(this.TextBox_DeleteId);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -119,5 +139,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox TextBox_DeleteId;
+        private System.Windows.Forms.TextBox TextBox_DescProduc;
     }
 }
