@@ -17,21 +17,18 @@ namespace CDatos
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public CatCatalogs()
         {
-            this.ImagesProduct = new HashSet<ImagesProduct>();
             this.Products = new HashSet<Products>();
         }
     
         public int IdCatalog { get; set; }
-        public int IdProvider { get; set; }
+        public Nullable<int> IdProvider { get; set; }
         public string Season { get; set; }
-        public string StarActiveDate { get; set; }
-        public string EndActiveDate { get; set; }
-        public string DateUpdate { get; set; }
-        public string IsEnabled { get; set; }
+        public Nullable<System.DateTime> StarActiveDate { get; set; }
+        public Nullable<System.DateTime> EndActiveDate { get; set; }
+        public Nullable<System.DateTime> DateUpdate { get; set; }
+        public bool IsEnabled { get; set; }
     
         public virtual CatProviders CatProviders { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ImagesProduct> ImagesProduct { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Products> Products { get; set; }
     }

@@ -56,6 +56,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AgregarProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AgregarProductos.Designer.cs">
+      <DependentUpon>AgregarProductos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,6 +70,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AgregarProductos.resx">
+      <DependentUpon>AgregarProductos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -91,6 +100,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CDatos\CDatos.csproj">
+      <Project>{4f0bc46b-dd6f-49b5-b8c0-960a167568f4}</Project>
+      <Name>CDatos</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CNegocio\CNegocio.csproj">
       <Project>{aaa38d3e-1694-40bb-a6fa-adf75b2446ed}</Project>
       <Name>CNegocio</Name>

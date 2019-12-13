@@ -14,48 +14,23 @@ namespace CNegocio
 {
     public class Business
     {
-        public BindingList<ProductosDatos> ListarProductos()
+        ConexionDB BsProd = new ConexionDB();
+
+
+        public List<FASV1_GetAllProducts_Result> ObtenerProductos()
         {
-
-            try
-            {
-                using (DataProductsEntities dbCntexto = new DataProductsEntities())
-                {
-                    List<ProductosDatos> QueryAll = (from n in dbCntexto.Products
-                                                     select new ProductosDatos
-                                                     {
-                                                         Id = n.Id,
-                                                         IdType = n.IdType,
-                                                         IdColor = n.IdColor,
-                                                         IdBrand = n.IdBrand,
-                                                         IdProvider = n.IdProvider,
-                                                         IdCatalog = n.IdCatalog,
-                                                         Title = n.Title,
-                                                         Nombre = n.Nombre,
-                                                         Description = n.Description,
-                                                         Observations = n.Observations,
-                                                         PriceDistributor = n.PriceDistributor,
-                                                         PriceClient = n.PriceClient,
-                                                         PriceMember = n.PriceMember,
-                                                         IsEnabled = n.IsEnabled,
-                                                         Keywords = n.Keywords,
-                                                         //DateUpdate = n.DateUpdate,
-
-                                                     }).ToList();
-
-
-
-
-
-                    BindingList<ProductosDatos> Resultado = new BindingList<ProductosDatos>(QueryAll);
-
-                    return Resultado;
-                }
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            return BsProd.ListarProductos();
         }
+
+        public List<FASV_FilterById_Result> FiltroId(int id)
+        {
+            return BsProd.FiltroId(id);
+        }
+
+        public List<FASV1_FilterByTitle_Result> FiltroTitle(string title)
+        {
+            return BsProd.FiltroTitle(title);
+        }
+
     }
 }

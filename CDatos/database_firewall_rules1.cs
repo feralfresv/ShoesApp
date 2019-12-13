@@ -12,15 +12,13 @@ namespace CDatos
     using System;
     using System.Collections.Generic;
     
-    public partial class ImagesProduct
+    public partial class database_firewall_rules1
     {
-        public int IdImage { get; set; }
-        public int IdProduct { get; set; }
-        public string Decription { get; set; }
-        public byte[] Image { get; set; }
-        public Nullable<System.DateTime> DateUpdate { get; set; }
-        public string IsEnabled { get; set; }
-    
-        public virtual Products Products { get; set; }
+        public int id { get; set; }
+        public string name { get; set; }
+        public string start_ip_address { get; set; }
+        public string end_ip_address { get; set; }
+        public System.DateTime create_date { get; set; }
+        public System.DateTime modify_date { get; set; }
     }
 }

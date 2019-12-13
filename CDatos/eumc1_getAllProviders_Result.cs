@@ -10,17 +10,10 @@
 namespace CDatos
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class ImagesProduct
+    public partial class eumc1_getAllProviders_Result
     {
-        public int IdImage { get; set; }
-        public int IdProduct { get; set; }
-        public string Decription { get; set; }
-        public byte[] Image { get; set; }
-        public Nullable<System.DateTime> DateUpdate { get; set; }
-        public string IsEnabled { get; set; }
-    
-        public virtual Products Products { get; set; }
+        public string Name { get; set; }
+        public int IdProvider { get; set; }
     }
 }
