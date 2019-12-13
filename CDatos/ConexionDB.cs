@@ -55,7 +55,7 @@ namespace CDatos
                             m.IdBrand = n.IdBrand;//--
                             m.IdProvider = n.IdProvider;
                             m.IdCatalog = n.IdCatalog;//--
-                            m.Title = n.Title;//--
+                            m.Title = n.Title;//---
                             m.Nombre = n.Nombre;
                             m.Description = n.Description;
                             m.Observations = n.Observations;
