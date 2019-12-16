@@ -26,9 +26,6 @@ namespace Administrador_tienda_FASV
         public void MostrasDataGrid()
         {
             dataGridView1.DataSource = tt.ObtenerProductos();
-            TextBox_BscID.Text = "";
-            TextBox_BscNombre.Text = "";
-            TextBox_DeleteId.Text = "";
 
         }
         public void FiltrarById()
@@ -45,7 +42,7 @@ namespace Administrador_tienda_FASV
             dataGridView1.DataSource = tt.FiltroId(Convert.ToInt32(TextBox_DeleteId.Text));
         }
 
-        //---------------------------------------------------------------------------------------------
+        //---------------------------------------------------------------------------------------------------------------------------------------------------------
         private void Form1_Load(object sender, EventArgs e)
         {
             MostrasDataGrid();
@@ -56,7 +53,6 @@ namespace Administrador_tienda_FASV
             AgregarProductos FormAddPro = new AgregarProductos();
             FormAddPro.ShowDialog();
         }
-
         //TextBox Solo Númerico 
         private void TextBox_BscID_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -75,6 +71,8 @@ namespace Administrador_tienda_FASV
             }
         }
 
+
+
         private void Button_Buscar_Click(object sender, EventArgs e)
         {
             FiltrarByTitle();
@@ -82,12 +80,24 @@ namespace Administrador_tienda_FASV
          
         private void Button_BsrID_Click(object sender, EventArgs e)
         {
-            FiltrarById();
+            if (TextBox_BscID.Text == "")
+            {
+                MessageBox.Show("Inserta un número");
+            }
+            else
+            {
+                FiltrarById();
+            }
+         
         } //Filtrar por ID
 
         private void Button_Actualizar_Click(object sender, EventArgs e)
         {
-            MostrasDataGrid();
+            Business t2 = new Business();
+            dataGridView1.DataSource = t2.ObtenerProductos2();
+            TextBox_BscID.Text = "";
+            TextBox_BscNombre.Text = "";
+            TextBox_DeleteId.Text = "";
 
         } //Actualziar Tabla
 
@@ -95,5 +105,22 @@ namespace Administrador_tienda_FASV
         {
             DeleteById();
         }
+
+        Form2Modificar MD = new Form2Modificar();
+        private void DataGridView1_Click(object sender, EventArgs e)
+        {
+           
+            MD.Txt_ModId.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            MD.Txt_ModNombre.Text = dataGridView1.CurrentRow.Cells[7].Value.ToString();
+            MD.Txt_ModDescr.Text = dataGridView1.CurrentRow.Cells[8].Value.ToString();
+            MD.TxT_ModPrecio.Text = dataGridView1.CurrentRow.Cells[11].Value.ToString();
+
+        }
+
+        private void Button_Editar_Click(object sender, EventArgs e)
+        {
+            MD.ShowDialog();
+        }
+
     }   
 }

@@ -21,20 +21,35 @@ namespace CNegocio
         {
             return BsProd.ListarProductos();
         }
-
-        public List<FASV_FilterById_Result> FiltroId(int id)
+        public List<FASV1_GetAllProducts_Result> ObtenerProductos2()
         {
-            return BsProd.FiltroId(id);
+            return BsProd.ListarProductos();
         }
 
-        public List<FASV1_FilterByTitle_Result> FiltroTitle(string nombre)
+        public List<FASV1_FilterById_Result> FiltroId(int aId)
         {
-            return BsProd.FiltroTitle(nombre);
+            return BsProd.FiltroId(aId);
         }
 
-        public  void EliminarId(int id)
+        public List<FASV1_FilterByTitle_Result> FiltroTitle(string aNombre)
         {
-            BsProd.DeleteLogic(id);
+            return BsProd.FiltroTitle(aNombre);
         }
+
+        public void EliminarId(int aId)
+        {
+            BsProd.DeleteLogic(aId);
+        }
+
+        public void InsertarPro(string aTitle, string aDescription, int aPrice)
+        {
+            BsProd.InsertProd(aTitle, aDescription, aPrice);
+        }
+
+        public void ModifyProduct(int aId, string aTitle, string aDescripcion, int aPriceClient)
+        {
+            BsProd.ModifyProduc(aId, aTitle, aDescripcion, aPriceClient);
+        }
+
     }
 }

@@ -1596,5 +1596,414 @@ namespace CDatos
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_upgraddiagrams");
         }
+    
+        public virtual ObjectResult<ACOB_GetSizeForEachProduct_Result> ACOB_GetSizeForEachProduct(Nullable<int> idProducto)
+        {
+            var idProductoParameter = idProducto.HasValue ?
+                new ObjectParameter("idProducto", idProducto) :
+                new ObjectParameter("idProducto", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ACOB_GetSizeForEachProduct_Result>("ACOB_GetSizeForEachProduct", idProductoParameter);
+        }
+    
+        public virtual int ACOB_InsertSizeProduct(Nullable<int> idProduct, Nullable<int> idSize)
+        {
+            var idProductParameter = idProduct.HasValue ?
+                new ObjectParameter("idProduct", idProduct) :
+                new ObjectParameter("idProduct", typeof(int));
+    
+            var idSizeParameter = idSize.HasValue ?
+                new ObjectParameter("idSize", idSize) :
+                new ObjectParameter("idSize", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ACOB_InsertSizeProduct", idProductParameter, idSizeParameter);
+        }
+    
+        public virtual int ACOB_UpdateSizeProduct(Nullable<int> id, Nullable<int> idProduct, Nullable<int> idSize)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            var idProductParameter = idProduct.HasValue ?
+                new ObjectParameter("idProduct", idProduct) :
+                new ObjectParameter("idProduct", typeof(int));
+    
+            var idSizeParameter = idSize.HasValue ?
+                new ObjectParameter("idSize", idSize) :
+                new ObjectParameter("idSize", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ACOB_UpdateSizeProduct", idParameter, idProductParameter, idSizeParameter);
+        }
+    
+        public virtual int ADER1_InsertProduct(Nullable<int> iDType, Nullable<int> iDColor, Nullable<int> idBrand, Nullable<int> idProvider, Nullable<int> idCatalog, string title, string nombre, string description, string observations, Nullable<decimal> priceDistributor, Nullable<decimal> priceClient, Nullable<decimal> priceMember, Nullable<bool> isEnabled, string keywords, Nullable<System.DateTime> dateUpdate)
+        {
+            var iDTypeParameter = iDType.HasValue ?
+                new ObjectParameter("IDType", iDType) :
+                new ObjectParameter("IDType", typeof(int));
+    
+            var iDColorParameter = iDColor.HasValue ?
+                new ObjectParameter("IDColor", iDColor) :
+                new ObjectParameter("IDColor", typeof(int));
+    
+            var idBrandParameter = idBrand.HasValue ?
+                new ObjectParameter("IdBrand", idBrand) :
+                new ObjectParameter("IdBrand", typeof(int));
+    
+            var idProviderParameter = idProvider.HasValue ?
+                new ObjectParameter("IdProvider", idProvider) :
+                new ObjectParameter("IdProvider", typeof(int));
+    
+            var idCatalogParameter = idCatalog.HasValue ?
+                new ObjectParameter("IdCatalog", idCatalog) :
+                new ObjectParameter("IdCatalog", typeof(int));
+    
+            var titleParameter = title != null ?
+                new ObjectParameter("Title", title) :
+                new ObjectParameter("Title", typeof(string));
+    
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("Nombre", nombre) :
+                new ObjectParameter("Nombre", typeof(string));
+    
+            var descriptionParameter = description != null ?
+                new ObjectParameter("Description", description) :
+                new ObjectParameter("Description", typeof(string));
+    
+            var observationsParameter = observations != null ?
+                new ObjectParameter("Observations", observations) :
+                new ObjectParameter("Observations", typeof(string));
+    
+            var priceDistributorParameter = priceDistributor.HasValue ?
+                new ObjectParameter("PriceDistributor", priceDistributor) :
+                new ObjectParameter("PriceDistributor", typeof(decimal));
+    
+            var priceClientParameter = priceClient.HasValue ?
+                new ObjectParameter("PriceClient", priceClient) :
+                new ObjectParameter("PriceClient", typeof(decimal));
+    
+            var priceMemberParameter = priceMember.HasValue ?
+                new ObjectParameter("PriceMember", priceMember) :
+                new ObjectParameter("PriceMember", typeof(decimal));
+    
+            var isEnabledParameter = isEnabled.HasValue ?
+                new ObjectParameter("IsEnabled", isEnabled) :
+                new ObjectParameter("IsEnabled", typeof(bool));
+    
+            var keywordsParameter = keywords != null ?
+                new ObjectParameter("Keywords", keywords) :
+                new ObjectParameter("Keywords", typeof(string));
+    
+            var dateUpdateParameter = dateUpdate.HasValue ?
+                new ObjectParameter("DateUpdate", dateUpdate) :
+                new ObjectParameter("DateUpdate", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ADER1_InsertProduct", iDTypeParameter, iDColorParameter, idBrandParameter, idProviderParameter, idCatalogParameter, titleParameter, nombreParameter, descriptionParameter, observationsParameter, priceDistributorParameter, priceClientParameter, priceMemberParameter, isEnabledParameter, keywordsParameter, dateUpdateParameter);
+        }
+    
+        public virtual int AVHM_Eliminar(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("AVHM_Eliminar", idParameter);
+        }
+    
+        public virtual int eumc1_deleteProduct(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("eumc1_deleteProduct", idParameter);
+        }
+    
+        public virtual int eumc1_deletesProduct(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("eumc1_deletesProduct", idParameter);
+        }
+    
+        public virtual int eumc1_deletessProduct(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("eumc1_deletessProduct", idParameter);
+        }
+    
+        public virtual int eumc1_deletProduct(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("eumc1_deletProduct", idParameter);
+        }
+    
+        public virtual int eumc1_editProduct(Nullable<int> id, Nullable<int> idType, Nullable<int> idColor, Nullable<int> idBrand, Nullable<int> idProvider, Nullable<int> idCatalog, string nombre, string title, string description, string observations, Nullable<decimal> priceDistributor, Nullable<decimal> priceClient, Nullable<decimal> priceMember, Nullable<bool> isEnabled, string keywords, Nullable<System.DateTime> dateUpdate)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            var idTypeParameter = idType.HasValue ?
+                new ObjectParameter("IdType", idType) :
+                new ObjectParameter("IdType", typeof(int));
+    
+            var idColorParameter = idColor.HasValue ?
+                new ObjectParameter("IdColor", idColor) :
+                new ObjectParameter("IdColor", typeof(int));
+    
+            var idBrandParameter = idBrand.HasValue ?
+                new ObjectParameter("IdBrand", idBrand) :
+                new ObjectParameter("IdBrand", typeof(int));
+    
+            var idProviderParameter = idProvider.HasValue ?
+                new ObjectParameter("IdProvider", idProvider) :
+                new ObjectParameter("IdProvider", typeof(int));
+    
+            var idCatalogParameter = idCatalog.HasValue ?
+                new ObjectParameter("IdCatalog", idCatalog) :
+                new ObjectParameter("IdCatalog", typeof(int));
+    
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("Nombre", nombre) :
+                new ObjectParameter("Nombre", typeof(string));
+    
+            var titleParameter = title != null ?
+                new ObjectParameter("Title", title) :
+                new ObjectParameter("Title", typeof(string));
+    
+            var descriptionParameter = description != null ?
+                new ObjectParameter("Description", description) :
+                new ObjectParameter("Description", typeof(string));
+    
+            var observationsParameter = observations != null ?
+                new ObjectParameter("Observations", observations) :
+                new ObjectParameter("Observations", typeof(string));
+    
+            var priceDistributorParameter = priceDistributor.HasValue ?
+                new ObjectParameter("PriceDistributor", priceDistributor) :
+                new ObjectParameter("PriceDistributor", typeof(decimal));
+    
+            var priceClientParameter = priceClient.HasValue ?
+                new ObjectParameter("PriceClient", priceClient) :
+                new ObjectParameter("PriceClient", typeof(decimal));
+    
+            var priceMemberParameter = priceMember.HasValue ?
+                new ObjectParameter("PriceMember", priceMember) :
+                new ObjectParameter("PriceMember", typeof(decimal));
+    
+            var isEnabledParameter = isEnabled.HasValue ?
+                new ObjectParameter("IsEnabled", isEnabled) :
+                new ObjectParameter("IsEnabled", typeof(bool));
+    
+            var keywordsParameter = keywords != null ?
+                new ObjectParameter("Keywords", keywords) :
+                new ObjectParameter("Keywords", typeof(string));
+    
+            var dateUpdateParameter = dateUpdate.HasValue ?
+                new ObjectParameter("DateUpdate", dateUpdate) :
+                new ObjectParameter("DateUpdate", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("eumc1_editProduct", idParameter, idTypeParameter, idColorParameter, idBrandParameter, idProviderParameter, idCatalogParameter, nombreParameter, titleParameter, descriptionParameter, observationsParameter, priceDistributorParameter, priceClientParameter, priceMemberParameter, isEnabledParameter, keywordsParameter, dateUpdateParameter);
+        }
+    
+        public virtual int FASV_InsertProduct(string title, string descripcion, Nullable<decimal> priceCliente)
+        {
+            var titleParameter = title != null ?
+                new ObjectParameter("Title", title) :
+                new ObjectParameter("Title", typeof(string));
+    
+            var descripcionParameter = descripcion != null ?
+                new ObjectParameter("Descripcion", descripcion) :
+                new ObjectParameter("Descripcion", typeof(string));
+    
+            var priceClienteParameter = priceCliente.HasValue ?
+                new ObjectParameter("PriceCliente", priceCliente) :
+                new ObjectParameter("PriceCliente", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("FASV_InsertProduct", titleParameter, descripcionParameter, priceClienteParameter);
+        }
+    
+        public virtual ObjectResult<string> FAVV_CatCatalogsSeason()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("FAVV_CatCatalogsSeason");
+        }
+    
+        public virtual ObjectResult<string> FAVV_DescripcionesDeCategotias()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("FAVV_DescripcionesDeCategotias");
+        }
+    
+        public virtual ObjectResult<Nullable<int>> FAVV_EncuentraIdBrandPorMarca(string name)
+        {
+            var nameParameter = name != null ?
+                new ObjectParameter("Name", name) :
+                new ObjectParameter("Name", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("FAVV_EncuentraIdBrandPorMarca", nameParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<int>> FAVV_EncuentraIdCatalogPorDescripcion(string des)
+        {
+            var desParameter = des != null ?
+                new ObjectParameter("Des", des) :
+                new ObjectParameter("Des", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("FAVV_EncuentraIdCatalogPorDescripcion", desParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<int>> FAVV_EncuentraIdCatalogPorSeason(string season)
+        {
+            var seasonParameter = season != null ?
+                new ObjectParameter("Season", season) :
+                new ObjectParameter("Season", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("FAVV_EncuentraIdCatalogPorSeason", seasonParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<int>> FAVV_EncuentraIdColorPorName(string name)
+        {
+            var nameParameter = name != null ?
+                new ObjectParameter("Name", name) :
+                new ObjectParameter("Name", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("FAVV_EncuentraIdColorPorName", nameParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<int>> FAVV_EncuentraIdProviderPorNombre(string name)
+        {
+            var nameParameter = name != null ?
+                new ObjectParameter("Name", name) :
+                new ObjectParameter("Name", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("FAVV_EncuentraIdProviderPorNombre", nameParameter);
+        }
+    
+        public virtual ObjectResult<byte[]> FAVV_ImagenesDeProducto(Nullable<int> elId)
+        {
+            var elIdParameter = elId.HasValue ?
+                new ObjectParameter("elId", elId) :
+                new ObjectParameter("elId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<byte[]>("FAVV_ImagenesDeProducto", elIdParameter);
+        }
+    
+        public virtual ObjectResult<string> FAVV_NombresColores()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("FAVV_NombresColores");
+        }
+    
+        public virtual ObjectResult<string> FAVV_NombresDeProductos()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("FAVV_NombresDeProductos");
+        }
+    
+        public virtual ObjectResult<string> FAVV_NombresMarcas()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("FAVV_NombresMarcas");
+        }
+    
+        public virtual ObjectResult<string> FAVV_NombresProvedores()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("FAVV_NombresProvedores");
+        }
+    
+        public virtual int JRCV1_InsertImages(Nullable<int> idProduct, string descripcion, byte[] image, Nullable<System.DateTime> dateUpdate, Nullable<bool> isEnable)
+        {
+            var idProductParameter = idProduct.HasValue ?
+                new ObjectParameter("idProduct", idProduct) :
+                new ObjectParameter("idProduct", typeof(int));
+    
+            var descripcionParameter = descripcion != null ?
+                new ObjectParameter("Descripcion", descripcion) :
+                new ObjectParameter("Descripcion", typeof(string));
+    
+            var imageParameter = image != null ?
+                new ObjectParameter("Image", image) :
+                new ObjectParameter("Image", typeof(byte[]));
+    
+            var dateUpdateParameter = dateUpdate.HasValue ?
+                new ObjectParameter("DateUpdate", dateUpdate) :
+                new ObjectParameter("DateUpdate", typeof(System.DateTime));
+    
+            var isEnableParameter = isEnable.HasValue ?
+                new ObjectParameter("IsEnable", isEnable) :
+                new ObjectParameter("IsEnable", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("JRCV1_InsertImages", idProductParameter, descripcionParameter, imageParameter, dateUpdateParameter, isEnableParameter);
+        }
+    
+        public virtual ObjectResult<FASV_SearchIdToModify_Result> FASV_SearchIdToModify(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<FASV_SearchIdToModify_Result>("FASV_SearchIdToModify", idParameter);
+        }
+    
+        public virtual int FASV1_DeleteLogic(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("FASV1_DeleteLogic", idParameter);
+        }
+    
+        public virtual ObjectResult<FASV1_FilterById_Result> FASV1_FilterById(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<FASV1_FilterById_Result>("FASV1_FilterById", idParameter);
+        }
+    
+        public virtual int FASV1_InsertProduct(string title, string descripcion, Nullable<decimal> priceCliente)
+        {
+            var titleParameter = title != null ?
+                new ObjectParameter("Title", title) :
+                new ObjectParameter("Title", typeof(string));
+    
+            var descripcionParameter = descripcion != null ?
+                new ObjectParameter("Descripcion", descripcion) :
+                new ObjectParameter("Descripcion", typeof(string));
+    
+            var priceClienteParameter = priceCliente.HasValue ?
+                new ObjectParameter("PriceCliente", priceCliente) :
+                new ObjectParameter("PriceCliente", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("FASV1_InsertProduct", titleParameter, descripcionParameter, priceClienteParameter);
+        }
+    
+        public virtual int FASV1_ModifyProduct(Nullable<int> id, string title, string descripcion, Nullable<decimal> priceCliente)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            var titleParameter = title != null ?
+                new ObjectParameter("Title", title) :
+                new ObjectParameter("Title", typeof(string));
+    
+            var descripcionParameter = descripcion != null ?
+                new ObjectParameter("Descripcion", descripcion) :
+                new ObjectParameter("Descripcion", typeof(string));
+    
+            var priceClienteParameter = priceCliente.HasValue ?
+                new ObjectParameter("PriceCliente", priceCliente) :
+                new ObjectParameter("PriceCliente", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("FASV1_ModifyProduct", idParameter, titleParameter, descripcionParameter, priceClienteParameter);
+        }
     }
 }

@@ -28,22 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.TextBox_BscNombre = new System.Windows.Forms.TextBox();
+            this.TextBox_addNombre = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.TextBox_DeleteId = new System.Windows.Forms.TextBox();
-            this.TextBox_DescProduc = new System.Windows.Forms.TextBox();
+            this.TextBox_AddDescProduc = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.TextBox_AddPrecio = new System.Windows.Forms.TextBox();
+            this.Button_Agregar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // TextBox_BscNombre
+            // TextBox_addNombre
             // 
-            this.TextBox_BscNombre.Location = new System.Drawing.Point(538, 32);
-            this.TextBox_BscNombre.Name = "TextBox_BscNombre";
-            this.TextBox_BscNombre.Size = new System.Drawing.Size(239, 26);
-            this.TextBox_BscNombre.TabIndex = 5;
+            this.TextBox_addNombre.Location = new System.Drawing.Point(538, 32);
+            this.TextBox_addNombre.Name = "TextBox_addNombre";
+            this.TextBox_addNombre.Size = new System.Drawing.Size(239, 26);
+            this.TextBox_addNombre.TabIndex = 5;
             // 
             // label2
             // 
@@ -55,74 +54,62 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Nombre: ";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(426, 75);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 29);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "ID:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(426, 121);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(112, 29);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Colores:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(426, 164);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(92, 29);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Tallas:";
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(426, 207);
+            this.label5.Location = new System.Drawing.Point(426, 101);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(315, 29);
             this.label5.TabIndex = 9;
             this.label5.Text = "Descripción del Producto:";
             // 
-            // TextBox_DeleteId
+            // TextBox_AddDescProduc
             // 
-            this.TextBox_DeleteId.Location = new System.Drawing.Point(477, 79);
-            this.TextBox_DeleteId.Name = "TextBox_DeleteId";
-            this.TextBox_DeleteId.Size = new System.Drawing.Size(125, 26);
-            this.TextBox_DeleteId.TabIndex = 12;
-            this.TextBox_DeleteId.TextChanged += new System.EventHandler(this.TextBox_DeleteId_TextChanged);
-            this.TextBox_DeleteId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_DeleteId_KeyPress);
+            this.TextBox_AddDescProduc.Location = new System.Drawing.Point(431, 143);
+            this.TextBox_AddDescProduc.Name = "TextBox_AddDescProduc";
+            this.TextBox_AddDescProduc.Size = new System.Drawing.Size(239, 26);
+            this.TextBox_AddDescProduc.TabIndex = 13;
             // 
-            // TextBox_DescProduc
+            // label6
             // 
-            this.TextBox_DescProduc.Location = new System.Drawing.Point(431, 249);
-            this.TextBox_DescProduc.Name = "TextBox_DescProduc";
-            this.TextBox_DescProduc.Size = new System.Drawing.Size(239, 26);
-            this.TextBox_DescProduc.TabIndex = 13;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(426, 189);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(96, 29);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "Precio:";
+            // 
+            // TextBox_AddPrecio
+            // 
+            this.TextBox_AddPrecio.Location = new System.Drawing.Point(431, 221);
+            this.TextBox_AddPrecio.Name = "TextBox_AddPrecio";
+            this.TextBox_AddPrecio.Size = new System.Drawing.Size(125, 26);
+            this.TextBox_AddPrecio.TabIndex = 15;
+            this.TextBox_AddPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_AddPrecio_KeyPress);
+            // 
+            // Button_Agregar
+            // 
+            this.Button_Agregar.Location = new System.Drawing.Point(273, 393);
+            this.Button_Agregar.Name = "Button_Agregar";
+            this.Button_Agregar.Size = new System.Drawing.Size(121, 45);
+            this.Button_Agregar.TabIndex = 16;
+            this.Button_Agregar.Text = "Agregar";
+            this.Button_Agregar.UseVisualStyleBackColor = true;
+            this.Button_Agregar.Click += new System.EventHandler(this.Button_Agregar_Click);
             // 
             // AgregarProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.TextBox_DescProduc);
-            this.Controls.Add(this.TextBox_DeleteId);
+            this.Controls.Add(this.Button_Agregar);
+            this.Controls.Add(this.TextBox_AddPrecio);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.TextBox_AddDescProduc);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.TextBox_BscNombre);
+            this.Controls.Add(this.TextBox_addNombre);
             this.Controls.Add(this.label2);
             this.Name = "AgregarProductos";
             this.Text = "AgregarProductos";
@@ -133,13 +120,12 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox TextBox_BscNombre;
+        private System.Windows.Forms.TextBox TextBox_addNombre;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox TextBox_DeleteId;
-        private System.Windows.Forms.TextBox TextBox_DescProduc;
+        private System.Windows.Forms.TextBox TextBox_AddDescProduc;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox TextBox_AddPrecio;
+        private System.Windows.Forms.Button Button_Agregar;
     }
 }

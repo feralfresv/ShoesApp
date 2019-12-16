@@ -40,6 +40,7 @@
             this.Button_BsrID = new System.Windows.Forms.Button();
             this.Button_Actualizar = new System.Windows.Forms.Button();
             this.TextBox_DeleteId = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,8 +50,10 @@
             this.dataGridView1.Location = new System.Drawing.Point(12, 169);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 28;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1326, 254);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.Click += new System.EventHandler(this.DataGridView1_Click);
             // 
             // label1
             // 
@@ -91,12 +94,13 @@
             // 
             // Button_Editar
             // 
-            this.Button_Editar.Location = new System.Drawing.Point(660, 104);
+            this.Button_Editar.Location = new System.Drawing.Point(660, 115);
             this.Button_Editar.Name = "Button_Editar";
             this.Button_Editar.Size = new System.Drawing.Size(121, 45);
             this.Button_Editar.TabIndex = 5;
             this.Button_Editar.Text = "Editar";
             this.Button_Editar.UseVisualStyleBackColor = true;
+            this.Button_Editar.Click += new System.EventHandler(this.Button_Editar_Click);
             // 
             // Button_Eliminar
             // 
@@ -155,18 +159,29 @@
             this.TextBox_DeleteId.TabIndex = 11;
             this.TextBox_DeleteId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_DeleteId_KeyPress);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(526, 127);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(128, 20);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Selecionar fila:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1383, 494);
+            this.Controls.Add(this.Button_Editar);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.TextBox_DeleteId);
             this.Controls.Add(this.Button_Actualizar);
             this.Controls.Add(this.Button_BsrID);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.TextBox_BscID);
             this.Controls.Add(this.Button_Eliminar);
-            this.Controls.Add(this.Button_Editar);
             this.Controls.Add(this.Button_Agregar);
             this.Controls.Add(this.TextBox_BscNombre);
             this.Controls.Add(this.label2);
@@ -195,6 +210,7 @@
         private System.Windows.Forms.Button Button_BsrID;
         private System.Windows.Forms.Button Button_Actualizar;
         private System.Windows.Forms.TextBox TextBox_DeleteId;
+        private System.Windows.Forms.Label label3;
     }
 }
 

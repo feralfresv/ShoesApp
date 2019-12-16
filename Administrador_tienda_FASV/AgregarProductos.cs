@@ -7,22 +7,38 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CNegocio;
+using CDatos;
 
 namespace Administrador_tienda_FASV
 {
     public partial class AgregarProductos : Form
     {
+        Business bb = new Business();
+
+
+
         public AgregarProductos()
         {
             InitializeComponent();
         }
 
-        private void TextBox_DeleteId_TextChanged(object sender, EventArgs e)
+        //METODOS-------------------------------------------------
+        public void AgregarInsert()
         {
-
+            bb.InsertarPro(TextBox_addNombre.Text, TextBox_AddDescProduc.Text, Convert.ToInt32(TextBox_AddPrecio.Text));
+            MessageBox.Show("Listo Agregado");
+            
+        }
+        public void Limpiar()
+        {
+            TextBox_addNombre.Text = "";
+            TextBox_AddDescProduc.Text = "";
+            TextBox_AddPrecio.Text = "";
         }
 
-        private void TextBox_DeleteId_KeyPress(object sender, KeyPressEventArgs e)
+        //TextBox Solo Númerico 
+        private void TextBox_AddPrecio_KeyPress(object sender, KeyPressEventArgs e)
         {
             Char chr = e.KeyChar;
             if (!Char.IsDigit(chr) && chr != 2)
@@ -30,5 +46,15 @@ namespace Administrador_tienda_FASV
                 e.Handled = true;
             }
         }
+
+
+        //Button Agregar Zapato
+        private void Button_Agregar_Click(object sender, EventArgs e)
+        {
+            AgregarInsert();
+            Limpiar();
+            bb.ObtenerProductos();
+        }
+
     }
 }
