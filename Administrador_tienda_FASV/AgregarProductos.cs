@@ -17,7 +17,6 @@ namespace Administrador_tienda_FASV
         Business bb = new Business();
 
 
-
         public AgregarProductos()
         {
             InitializeComponent();
@@ -36,6 +35,19 @@ namespace Administrador_tienda_FASV
             TextBox_AddDescProduc.Text = "";
             TextBox_AddPrecio.Text = "";
         }
+        public void LlamarColores()
+        {
+            comboBox1.DataSource = bb.Allcolor();
+            comboBox1.DisplayMember = "Name";
+            comboBox1.ValueMember = "IdColor";
+            comboBox1.SelectedIndex = -1;
+        }
+
+        //Load
+        private void AgregarProductos_Load(object sender, EventArgs e)
+        {
+            LlamarColores();
+        }
 
         //TextBox Solo Númerico 
         private void TextBox_AddPrecio_KeyPress(object sender, KeyPressEventArgs e)
@@ -47,7 +59,6 @@ namespace Administrador_tienda_FASV
             }
         }
 
-
         //Button Agregar Zapato
         private void Button_Agregar_Click(object sender, EventArgs e)
         {
@@ -56,18 +67,9 @@ namespace Administrador_tienda_FASV
             bb.ObtenerProductos();
         }
 
+        
+ 
 
-        private void AgregarProductos_Load(object sender, EventArgs e)
-        {
-            LlamarColores();
-        }
-
-        public void LlamarColores()
-        {
-            comboBox1.DataSource = bb.Allcolor();
-            comboBox1.DisplayMember = "Name";
-            comboBox1.ValueMember = "IdColor";
-            comboBox1.SelectedIndex = -1;
-        }
+ 
     }
 }

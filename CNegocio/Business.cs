@@ -21,7 +21,8 @@ namespace CNegocio
         {
             return BsProd.ListarProductos();
         }
-        public List<FASV1_GetAllProducts_Result> ObtenerProductos2()
+
+        public List<FASV1_GetAllProducts_Result> ObtenerProductos2()//Refrescar2
         {
             return BsProd.ListarProductos();
         }
@@ -29,9 +30,7 @@ namespace CNegocio
         public List<FASV1_AllColor_Result> Allcolor()
         {
             return BsProd.AllColor();
-
         }
-
 
         public List<FASV1_FilterById_Result> FiltroId(int aId)
         {

@@ -80,27 +80,33 @@ namespace CDatos
         }
 
         public List<FASV1_AllColor_Result> AllColor()
-        {
-            using (DataProductsEntities cc = new DataProductsEntities())
+        {//Show Colors omboBox
+            #region
+            try
             {
-                List<FASV1_AllColor_Result> listcolor = new List<FASV1_AllColor_Result>();
-                foreach (var item in fff.CatColors.ToList())
+                using (DataProductsEntities cc = new DataProductsEntities())
                 {
-                    FASV1_AllColor_Result m = new FASV1_AllColor_Result();
+                    List<FASV1_AllColor_Result> listcolor = new List<FASV1_AllColor_Result>();
+                    foreach (var item in fff.CatColors.ToList())
                     {
-                        m.IdColor = item.IdColor;
-                        m.Name = item.Name;
-                        listcolor.Add(m);
+                        FASV1_AllColor_Result m = new FASV1_AllColor_Result();
+                        {
+                            m.IdColor = item.IdColor;
+                            m.Name = item.Name;
+                            listcolor.Add(m);
+                        }
                     }
+
+                    return listcolor;
                 }
+            }
+            catch (Exception)
+            {
 
-                return listcolor;
-            }   
-        }
-
-
-
-
+                throw;
+            }
+            #endregion
+        }    
 
         public List<FASV1_FilterById_Result> FiltroId(int aId)
         {//FilterById
@@ -223,8 +229,6 @@ namespace CDatos
             }
             #endregion
         }
-
-
 
     }
 }
