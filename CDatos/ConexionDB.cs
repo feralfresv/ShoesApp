@@ -209,12 +209,12 @@ namespace CDatos
 #endregion
         }    
 
-        public void ModifyProduc(int aId, string aTitle, string aDescripcion, Int64 aPriceClient)
+        public void ModifyProduc(int aId, string aTitle, string aDescripcion, Int64 aPriceClient, int aColor)
         {//Modificar Producto
             #region
             try
             {
-                fff.FASV1_ModifyProduct(aId, aTitle, aDescripcion, aPriceClient);
+                fff.FASV1_ModifyProduct(aId, aTitle, aDescripcion, aPriceClient, aColor);
             }
             catch (Exception)
             {

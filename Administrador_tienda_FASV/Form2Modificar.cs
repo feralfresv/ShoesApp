@@ -23,7 +23,7 @@ namespace Administrador_tienda_FASV
         //METODOS-------------------------------------------------
         public void Modificar()
         {
-            bb.ModifyProduct(Convert.ToInt32(Txt_ModId.Text), Txt_ModNombre.Text, Txt_ModDescr.Text, Convert.ToInt64(TxT_ModPrecio.Text));
+            bb.ModifyProduct(Convert.ToInt32(Txt_ModId.Text), Txt_ModNombre.Text, Txt_ModDescr.Text, Convert.ToInt64(TxT_ModPrecio.Text), Convert.ToInt32(comboBox1.SelectedValue));
             MessageBox.Show("Cambioar realizados");
         }
 
@@ -32,6 +32,19 @@ namespace Administrador_tienda_FASV
         private void Button_Editar_Click(object sender, EventArgs e)
         {
             Modificar();
+        }
+
+        private void Form2Modificar_Load(object sender, EventArgs e)
+        {
+            LlamarColores();
+        }
+
+        public void LlamarColores()
+        {
+            comboBox1.DataSource = bb.Allcolor();
+            comboBox1.DisplayMember = "Name";
+            comboBox1.ValueMember = "IdColor";
+            comboBox1.SelectedIndex = -1;
         }
     }
 }

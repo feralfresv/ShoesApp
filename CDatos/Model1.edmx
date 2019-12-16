@@ -744,6 +744,7 @@ advertencia 6002: La tabla o vista 'DataProducts.sys.database_firewall_rules' no
           <Parameter Name="Title" Type="nvarchar(max)" Mode="In" />
           <Parameter Name="Descripcion" Type="nvarchar(max)" Mode="In" />
           <Parameter Name="PriceCliente" Type="decimal" Mode="In" />
+          <Parameter Name="IdColor" Type="int" Mode="In" />
         </Function>
         <Function Name="FAVV_AgregaImagen" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="idProduct" Type="int" Mode="In" />
@@ -2204,6 +2205,7 @@ advertencia 6002: La tabla o vista 'DataProducts.sys.database_firewall_rules' no
             <Parameter Name="Title" Mode="In" Type="String" />
             <Parameter Name="Descripcion" Mode="In" Type="String" />
             <Parameter Name="PriceCliente" Mode="In" Type="Decimal" />
+            <Parameter Name="IdColor" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="AVHM_EliminarLogico">
           <Parameter Name="Id" Mode="In" Type="Int32" />

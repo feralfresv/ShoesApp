@@ -53,9 +53,9 @@ namespace CNegocio
             BsProd.InsertProd(aTitle, aDescription, aPrice, aColor);
         }
 
-        public void ModifyProduct(int aId, string aTitle, string aDescripcion, Int64 aPriceClient)
+        public void ModifyProduct(int aId, string aTitle, string aDescripcion, Int64 aPriceClient, int aColor)
         {
-            BsProd.ModifyProduc(aId, aTitle, aDescripcion, aPriceClient);
+            BsProd.ModifyProduc(aId, aTitle, aDescripcion, aPriceClient, aColor);
         }
 
 

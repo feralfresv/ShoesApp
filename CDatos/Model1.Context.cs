@@ -1989,7 +1989,7 @@ namespace CDatos
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("FASV1_InsertProduct", titleParameter, descripcionParameter, priceClienteParameter, idColorParameter);
         }
     
-        public virtual int FASV1_ModifyProduct(Nullable<int> id, string title, string descripcion, Nullable<decimal> priceCliente)
+        public virtual int FASV1_ModifyProduct(Nullable<int> id, string title, string descripcion, Nullable<decimal> priceCliente, Nullable<int> idColor)
         {
             var idParameter = id.HasValue ?
                 new ObjectParameter("Id", id) :
@@ -2007,7 +2007,11 @@ namespace CDatos
                 new ObjectParameter("PriceCliente", priceCliente) :
                 new ObjectParameter("PriceCliente", typeof(decimal));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("FASV1_ModifyProduct", idParameter, titleParameter, descripcionParameter, priceClienteParameter);
+            var idColorParameter = idColor.HasValue ?
+                new ObjectParameter("IdColor", idColor) :
+                new ObjectParameter("IdColor", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("FASV1_ModifyProduct", idParameter, titleParameter, descripcionParameter, priceClienteParameter, idColorParameter);
         }
     
         public virtual int AVHM_EliminarLogico(Nullable<int> id)
