@@ -26,6 +26,13 @@ namespace CNegocio
             return BsProd.ListarProductos();
         }
 
+        public List<FASV1_AllColor_Result> Allcolor()
+        {
+            return BsProd.AllColor();
+
+        }
+
+
         public List<FASV1_FilterById_Result> FiltroId(int aId)
         {
             return BsProd.FiltroId(aId);
@@ -41,15 +48,16 @@ namespace CNegocio
             BsProd.DeleteLogic(aId);
         }
 
-        public void InsertarPro(string aTitle, string aDescription, int aPrice)
+        public void InsertarPro(string aTitle, string aDescription, int aPrice, int aColor)
         {
-            BsProd.InsertProd(aTitle, aDescription, aPrice);
+            BsProd.InsertProd(aTitle, aDescription, aPrice, aColor);
         }
 
-        public void ModifyProduct(int aId, string aTitle, string aDescripcion, int aPriceClient)
+        public void ModifyProduct(int aId, string aTitle, string aDescripcion, Int64 aPriceClient)
         {
             BsProd.ModifyProduc(aId, aTitle, aDescripcion, aPriceClient);
         }
+
 
     }
 }

@@ -79,6 +79,29 @@ namespace CDatos
             #endregion
         }
 
+        public List<FASV1_AllColor_Result> AllColor()
+        {
+            using (DataProductsEntities cc = new DataProductsEntities())
+            {
+                List<FASV1_AllColor_Result> listcolor = new List<FASV1_AllColor_Result>();
+                foreach (var item in fff.CatColors.ToList())
+                {
+                    FASV1_AllColor_Result m = new FASV1_AllColor_Result();
+                    {
+                        m.IdColor = item.IdColor;
+                        m.Name = item.Name;
+                        listcolor.Add(m);
+                    }
+                }
+
+                return listcolor;
+            }   
+        }
+
+
+
+
+
         public List<FASV1_FilterById_Result> FiltroId(int aId)
         {//FilterById
             #region
@@ -172,12 +195,12 @@ namespace CDatos
             #endregion
         }
 
-        public void InsertProd(string aTitle, string aDescription, int aPrice)
+        public void InsertProd(string aTitle, string aDescription, int aPrice, int aColor)
         {//Insertar Productos 
             #region
             try
             {
-                fff.FASV1_InsertProduct(aTitle, aDescription, aPrice);
+                fff.FASV1_InsertProduct(aTitle, aDescription, aPrice, aColor);
             }
             catch (Exception)
             {
@@ -186,7 +209,7 @@ namespace CDatos
 #endregion
         }    
 
-        public void ModifyProduc(int aId, string aTitle, string aDescripcion, int aPriceClient)
+        public void ModifyProduc(int aId, string aTitle, string aDescripcion, Int64 aPriceClient)
         {//Modificar Producto
             #region
             try

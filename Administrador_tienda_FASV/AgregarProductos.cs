@@ -26,7 +26,7 @@ namespace Administrador_tienda_FASV
         //METODOS-------------------------------------------------
         public void AgregarInsert()
         {
-            bb.InsertarPro(TextBox_addNombre.Text, TextBox_AddDescProduc.Text, Convert.ToInt32(TextBox_AddPrecio.Text));
+            bb.InsertarPro(TextBox_addNombre.Text, TextBox_AddDescProduc.Text, Convert.ToInt32(TextBox_AddPrecio.Text), Convert.ToInt32(comboBox1.SelectedValue));
             MessageBox.Show("Listo Agregado");
             
         }
@@ -56,5 +56,18 @@ namespace Administrador_tienda_FASV
             bb.ObtenerProductos();
         }
 
+
+        private void AgregarProductos_Load(object sender, EventArgs e)
+        {
+            LlamarColores();
+        }
+
+        public void LlamarColores()
+        {
+            comboBox1.DataSource = bb.Allcolor();
+            comboBox1.DisplayMember = "Name";
+            comboBox1.ValueMember = "IdColor";
+            comboBox1.SelectedIndex = -1;
+        }
     }
 }

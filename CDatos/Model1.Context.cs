@@ -1968,7 +1968,7 @@ namespace CDatos
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<FASV1_FilterById_Result>("FASV1_FilterById", idParameter);
         }
     
-        public virtual int FASV1_InsertProduct(string title, string descripcion, Nullable<decimal> priceCliente)
+        public virtual int FASV1_InsertProduct(string title, string descripcion, Nullable<decimal> priceCliente, Nullable<int> idColor)
         {
             var titleParameter = title != null ?
                 new ObjectParameter("Title", title) :
@@ -1982,7 +1982,11 @@ namespace CDatos
                 new ObjectParameter("PriceCliente", priceCliente) :
                 new ObjectParameter("PriceCliente", typeof(decimal));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("FASV1_InsertProduct", titleParameter, descripcionParameter, priceClienteParameter);
+            var idColorParameter = idColor.HasValue ?
+                new ObjectParameter("IdColor", idColor) :
+                new ObjectParameter("IdColor", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("FASV1_InsertProduct", titleParameter, descripcionParameter, priceClienteParameter, idColorParameter);
         }
     
         public virtual int FASV1_ModifyProduct(Nullable<int> id, string title, string descripcion, Nullable<decimal> priceCliente)
@@ -2004,6 +2008,29 @@ namespace CDatos
                 new ObjectParameter("PriceCliente", typeof(decimal));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("FASV1_ModifyProduct", idParameter, titleParameter, descripcionParameter, priceClienteParameter);
+        }
+    
+        public virtual int AVHM_EliminarLogico(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("AVHM_EliminarLogico", idParameter);
+        }
+    
+        public virtual int dena_sp_EliminarProduct(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("dena_sp_EliminarProduct", idParameter);
+        }
+    
+        public virtual ObjectResult<FASV1_AllColor_Result> FASV1_AllColor()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<FASV1_AllColor_Result>("FASV1_AllColor");
         }
     }
 }

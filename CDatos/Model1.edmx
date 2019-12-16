@@ -559,6 +559,9 @@ advertencia 6002: La tabla o vista 'DataProducts.sys.database_firewall_rules' no
         <Function Name="AVHM_Eliminar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Id" Type="int" Mode="In" />
         </Function>
+        <Function Name="AVHM_EliminarLogico" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+        </Function>
         <Function Name="AVHM_Modificar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Id" Type="int" Mode="In" />
           <Parameter Name="idType" Type="int" Mode="In" />
@@ -645,6 +648,9 @@ advertencia 6002: La tabla o vista 'DataProducts.sys.database_firewall_rules' no
         <Function Name="dena_sp_BusquedaProdNom" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Nombre" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="dena_sp_EliminarProduct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+        </Function>
         <Function Name="dena_sp_InsertProd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IdType" Type="int" Mode="In" />
           <Parameter Name="IdColor" Type="int" Mode="In" />
@@ -716,6 +722,7 @@ advertencia 6002: La tabla o vista 'DataProducts.sys.database_firewall_rules' no
           <Parameter Name="Id" Type="int" Mode="In" />
           <Parameter Name="Nombre" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="FASV1_AllColor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="FASV1_DeleteLogic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Id" Type="int" Mode="In" />
         </Function>
@@ -730,6 +737,7 @@ advertencia 6002: La tabla o vista 'DataProducts.sys.database_firewall_rules' no
           <Parameter Name="Title" Type="nvarchar(max)" Mode="In" />
           <Parameter Name="Descripcion" Type="nvarchar(max)" Mode="In" />
           <Parameter Name="PriceCliente" Type="decimal" Mode="In" />
+          <Parameter Name="IdColor" Type="int" Mode="In" />
         </Function>
         <Function Name="FASV1_ModifyProduct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Id" Type="int" Mode="In" />
@@ -2189,6 +2197,7 @@ advertencia 6002: La tabla o vista 'DataProducts.sys.database_firewall_rules' no
             <Parameter Name="Title" Mode="In" Type="String" />
             <Parameter Name="Descripcion" Mode="In" Type="String" />
             <Parameter Name="PriceCliente" Mode="In" Type="Decimal" />
+            <Parameter Name="IdColor" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="FASV1_ModifyProduct">
             <Parameter Name="Id" Mode="In" Type="Int32" />
@@ -2196,6 +2205,13 @@ advertencia 6002: La tabla o vista 'DataProducts.sys.database_firewall_rules' no
             <Parameter Name="Descripcion" Mode="In" Type="String" />
             <Parameter Name="PriceCliente" Mode="In" Type="Decimal" />
           </FunctionImport>
+          <FunctionImport Name="AVHM_EliminarLogico">
+          <Parameter Name="Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="dena_sp_EliminarProduct">
+          <Parameter Name="Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="FASV1_AllColor" ReturnType="Collection(DataProductsModel.FASV1_AllColor_Result)" />
         </EntityContainer>
         <ComplexType Name="ACOB_GetColors_Result">
           <Property Type="Int32" Name="IdColor" Nullable="false" />
@@ -2850,6 +2866,10 @@ advertencia 6002: La tabla o vista 'DataProducts.sys.database_firewall_rules' no
           <Property Type="Boolean" Name="IsEnabled" Nullable="false" />
           <Property Type="String" Name="Keywords" Nullable="true" />
           <Property Type="DateTime" Name="DateUpdate" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="FASV1_AllColor_Result">
+          <Property Type="Int32" Name="IdColor" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -3937,6 +3957,16 @@ advertencia 6002: La tabla o vista 'DataProducts.sys.database_firewall_rules' no
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="FASV1_InsertProduct" FunctionName="DataProductsModel.Store.FASV1_InsertProduct" />
           <FunctionImportMapping FunctionImportName="FASV1_ModifyProduct" FunctionName="DataProductsModel.Store.FASV1_ModifyProduct" />
+          <FunctionImportMapping FunctionImportName="AVHM_EliminarLogico" FunctionName="DataProductsModel.Store.AVHM_EliminarLogico" />
+          <FunctionImportMapping FunctionImportName="dena_sp_EliminarProduct" FunctionName="DataProductsModel.Store.dena_sp_EliminarProduct" />
+          <FunctionImportMapping FunctionImportName="FASV1_AllColor" FunctionName="DataProductsModel.Store.FASV1_AllColor">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DataProductsModel.FASV1_AllColor_Result">
+                <ScalarProperty Name="IdColor" ColumnName="IdColor" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
