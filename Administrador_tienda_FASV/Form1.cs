@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using CNegocio;
 using CDatos;
 
+
 namespace Administrador_tienda_FASV
 {
     public partial class Form1 : Form

@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="2c10edd75cbe42d5bd2d215eb334c752" Name="Diagram1">
+      <Diagram DiagramId="2c10edd75cbe42d5bd2d215eb334c752" Name="Diagram1" ZoomLevel="74">
         <EntityTypeShape EntityType="DataProductsModel.CatBrands" Width="1.5" PointX="5.75" PointY="4.25" IsExpanded="true" />
         <EntityTypeShape EntityType="DataProductsModel.CatCatalogs" Width="1.5" PointX="5.75" PointY="14.375" IsExpanded="true" />
         <EntityTypeShape EntityType="DataProductsModel.CatColors" Width="1.5" PointX="5.75" PointY="17.875" IsExpanded="true" />

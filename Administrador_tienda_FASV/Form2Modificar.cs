@@ -46,6 +46,5 @@ namespace Administrador_tienda_FASV
             Modificar();
         }
 
-
     }
 }
