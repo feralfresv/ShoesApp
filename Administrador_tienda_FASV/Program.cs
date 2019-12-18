@@ -9,7 +9,7 @@ namespace Administrador_tienda_FASV
     static class Program
     {
         /// <summary>
-        /// Punto de entrada principal para la aplicación.
+        /// Punto de entrada principal para la aplicación. //SS
         /// </summary>
         [STAThread]
         static void Main()
