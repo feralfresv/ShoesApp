@@ -10,7 +10,7 @@ namespace Administrador_tienda_FASV
     {
         /// <summary>
         /// Punto de entrada principal para la aplicación.
-        /// </summary>
+        /// </summary>//SS
         [STAThread]
         static void Main()
         {
