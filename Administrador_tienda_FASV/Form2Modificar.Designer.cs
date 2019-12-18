@@ -174,6 +174,6 @@
         internal System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button Button_Editar;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox1;
+        internal System.Windows.Forms.ComboBox comboBox1;
     }
 }

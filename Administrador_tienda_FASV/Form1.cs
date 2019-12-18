@@ -9,7 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CNegocio;
 using CDatos;
-
+using System.IO;
+using System.Xml;
+//frds
 
 namespace Administrador_tienda_FASV
 {
@@ -47,6 +49,7 @@ namespace Administrador_tienda_FASV
         private void Form1_Load(object sender, EventArgs e)
         {
             MostrasDataGrid();
+            ExportarXML();
         }//Mostrar Datagrid al correr el programa
 
         //Ir al FORM de Agregar
@@ -100,12 +103,14 @@ namespace Administrador_tienda_FASV
             TextBox_BscID.Text = "";
             TextBox_BscNombre.Text = "";
             TextBox_DeleteId.Text = "";
+            ExportarXML();
 
         } //Actualziar Tabla
 
         private void Button_Eliminar_Click(object sender, EventArgs e)//Eliminar por ID
         {
             DeleteById();
+            ExportarXML();
         }
 
         private void DataGridView1_Click(object sender, EventArgs e)//Mostrar Datos para editar
@@ -114,6 +119,7 @@ namespace Administrador_tienda_FASV
             MD.Txt_ModNombre.Text = dataGridView1.CurrentRow.Cells[7].Value.ToString();
             MD.Txt_ModDescr.Text = dataGridView1.CurrentRow.Cells[8].Value.ToString();
             MD.TxT_ModPrecio.Text = dataGridView1.CurrentRow.Cells[11].Value.ToString();
+            MD.comboBox1.Text = dataGridView1.CurrentRow.Cells[2].ToString();
         }
 
         private void Button_Editar_Click(object sender, EventArgs e)
@@ -121,5 +127,38 @@ namespace Administrador_tienda_FASV
             MD.ShowDialog();
         }//Ejecutar cambios del zapato
 
+
+
+
+        private void ExportarXML()
+        {
+            var ds = new DataSet();
+            var dt = new DataTable();
+
+            foreach (var column in dataGridView1.Columns.Cast<DataGridViewColumn>())
+            {
+                dt.Columns.Add();
+            }
+
+            var cellValues = new object[dataGridView1.Columns.Count];
+
+            foreach (var row in dataGridView1.Rows.Cast<DataGridViewRow>())
+            {
+                for (int i = 0; i < row.Cells.Count; i++)
+                {
+                    cellValues[i] = row.Cells[i].Value;
+                }
+                dt.Rows.Add(cellValues);
+
+            }
+
+            ds.Tables.Add(dt);
+
+            string FileName = "Zapatos_xml.xml";
+            FileStream Stream = new FileStream(FileName, FileMode.Create);
+            XmlTextWriter xmlWriter = new XmlTextWriter(Stream, System.Text.Encoding.Unicode);
+            ds.WriteXml(xmlWriter);
+            xmlWriter.Close();
+        }
     }   
 }
