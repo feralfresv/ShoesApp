@@ -14,7 +14,7 @@ namespace Administrador_tienda_FASV
         /// </summary>
 =======
         /// Punto de entrada principal para la aplicación.
-        /// </summary>//SS
+        /// </summary>//SS---filesystemwatcher
 >>>>>>> v2
         [STAThread]
         static void Main()
