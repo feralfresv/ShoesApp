@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CDatos", "CDatos\CDatos.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entity", "Entity\Entity.csproj", "{828C8A27-8038-47F3-A030-66BF132042E8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary2", "ClassLibrary2\ClassLibrary2.csproj", "{90220751-516E-4D9C-A8FE-7C8377B4F1D1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{828C8A27-8038-47F3-A030-66BF132042E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{828C8A27-8038-47F3-A030-66BF132042E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{828C8A27-8038-47F3-A030-66BF132042E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90220751-516E-4D9C-A8FE-7C8377B4F1D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90220751-516E-4D9C-A8FE-7C8377B4F1D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90220751-516E-4D9C-A8FE-7C8377B4F1D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90220751-516E-4D9C-A8FE-7C8377B4F1D1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
