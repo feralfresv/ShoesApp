@@ -41,7 +41,11 @@
             this.Button_Actualizar = new System.Windows.Forms.Button();
             this.TextBox_DeleteId = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.TextBox_File = new System.Windows.Forms.TextBox();
+            this.FileSystemWatcher1 = new System.IO.FileSystemWatcher();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FileSystemWatcher1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -51,7 +55,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 28;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1326, 254);
+            this.dataGridView1.Size = new System.Drawing.Size(1677, 254);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.Click += new System.EventHandler(this.DataGridView1_Click);
             // 
@@ -143,7 +147,7 @@
             // Button_Actualizar
             // 
             this.Button_Actualizar.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.Button_Actualizar.Location = new System.Drawing.Point(645, 429);
+            this.Button_Actualizar.Location = new System.Drawing.Point(641, 445);
             this.Button_Actualizar.Name = "Button_Actualizar";
             this.Button_Actualizar.Size = new System.Drawing.Size(116, 62);
             this.Button_Actualizar.TabIndex = 10;
@@ -169,11 +173,36 @@
             this.label3.TabIndex = 12;
             this.label3.Text = "Selecionar fila:";
             // 
+            // TextBox_File
+            // 
+            this.TextBox_File.Location = new System.Drawing.Point(17, 522);
+            this.TextBox_File.Multiline = true;
+            this.TextBox_File.Name = "TextBox_File";
+            this.TextBox_File.Size = new System.Drawing.Size(1672, 103);
+            this.TextBox_File.TabIndex = 13;
+            // 
+            // FileSystemWatcher1
+            // 
+            this.FileSystemWatcher1.EnableRaisingEvents = true;
+            this.FileSystemWatcher1.SynchronizingObject = this;
+            this.FileSystemWatcher1.Changed += new System.IO.FileSystemEventHandler(this.FileSystemWatcher1_Changed);
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 20;
+            this.listBox1.Location = new System.Drawing.Point(17, 667);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(1672, 144);
+            this.listBox1.TabIndex = 14;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1383, 494);
+            this.ClientSize = new System.Drawing.Size(1701, 834);
+            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.TextBox_File);
             this.Controls.Add(this.Button_Editar);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.TextBox_DeleteId);
@@ -191,6 +220,7 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FileSystemWatcher1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -211,6 +241,9 @@
         private System.Windows.Forms.Button Button_Actualizar;
         private System.Windows.Forms.TextBox TextBox_DeleteId;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox TextBox_File;
+        private System.IO.FileSystemWatcher FileSystemWatcher1;
+        private System.Windows.Forms.ListBox listBox1;
     }
 }
 

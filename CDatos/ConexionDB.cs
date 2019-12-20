@@ -16,8 +16,8 @@ namespace CDatos
 
 
         public List<FASV1_GetAllProducts_Result> ListarProductos()
-        {//ShowAllProducts 
-            #region
+        {// 
+            #region ShowAllProducts 
             try
             {
                 using (DataProductsEntities dbProd = new DataProductsEntities()) //Aqui ya se ahce la conexion 
@@ -80,8 +80,8 @@ namespace CDatos
         }
 
         public List<FASV1_AllColor_Result> AllColor()
-        {//Show Colors omboBox
-            #region
+        {//
+            #region Show Colors omboBox
             try
             {
                 using (DataProductsEntities cc = new DataProductsEntities())
@@ -109,8 +109,8 @@ namespace CDatos
         }    
 
         public List<FASV1_FilterById_Result> FiltroId(int aId)
-        {//FilterById
-            #region
+        {//
+            #region FilterById
             try
             {
                 List<FASV1_FilterById_Result> listTitle = new List<FASV1_FilterById_Result>();
@@ -150,8 +150,8 @@ namespace CDatos
         }
 
         public List<FASV1_FilterByTitle_Result> FiltroTitle(string aNombre)
-        {//FilterByNombre
-            #region
+        {//
+            #region FilterByNombre
             try
             {
                 List<FASV1_FilterByTitle_Result> listTitle = new List<FASV1_FilterByTitle_Result>();
@@ -188,8 +188,8 @@ namespace CDatos
         }
 
         public void DeleteLogic(int aId)
-        {//FilterDeleteLogic
-            #region
+        {//
+            #region FilterDeleteLogic
             try
             {
                 fff.FASV1_DeleteLogic(aId);
@@ -202,8 +202,8 @@ namespace CDatos
         }
 
         public void InsertProd(string aTitle, string aDescription, int aPrice, int aColor)
-        {//Insertar Productos 
-            #region
+        {//
+            #region Insertar Productos 
             try
             {
                 fff.FASV1_InsertProduct(aTitle, aDescription, aPrice, aColor);
@@ -216,8 +216,8 @@ namespace CDatos
         }    
 
         public void ModifyProduc(int aId, string aTitle, string aDescripcion, Int64 aPriceClient, int aColor)
-        {//Modificar Producto
-            #region
+        {//
+            #region Modificar Producto
             try
             {
                 fff.FASV1_ModifyProduct(aId, aTitle, aDescripcion, aPriceClient, aColor);

@@ -8,14 +8,7 @@ namespace Administrador_tienda_FASV
 {
     static class Program
     {
-        /// <summary>
-<<<<<<< HEAD
-        /// Punto de entrada principal para la aplicación. //SS
-        /// </summary>
-=======
-        /// Punto de entrada principal para la aplicación.
-        /// </summary>//SS---filesystemwatcher
->>>>>>> v2
+
         [STAThread]
         static void Main()
         {
