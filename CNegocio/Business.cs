@@ -57,6 +57,9 @@ namespace CNegocio
             BsProd.ModifyProduc(aId, aTitle, aDescripcion, aPriceClient, aColor);
         }
 
-
+        public List<FASV1_GetChangesOnProduct_Desc_Result> GetCambios()
+        {
+            return BsProd.GetCambiosPro();
+        }
     }
 }

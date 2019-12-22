@@ -17,7 +17,7 @@ namespace Administrador_tienda_FASV
 {
     public partial class Form1 : Form
     {
-
+        ConexionDB test = new ConexionDB();
         Business tt = new Business();
         Form2Modificar MD = new Form2Modificar();
         string PathCarpeta = @"C:\Users\Curso\source\repos\Academia_Softtek\ShoesApp\XML";
@@ -51,7 +51,7 @@ namespace Administrador_tienda_FASV
             dataGridView1.DataSource = tt.FiltroId(Convert.ToInt32(TextBox_DeleteId.Text));
         }
         private void ExportarXML()
-        {//
+        {
             #region XML Extracción
             var ds = new DataSet();
             var dt = new DataTable();
@@ -95,7 +95,10 @@ namespace Administrador_tienda_FASV
                 TextBox_File.Text += item + Environment.NewLine;
             }
         }
-
+        private void GetCambios()
+        {
+            dataGridView2.DataSource = test.GetCambiosPro();
+        }
         #region FileSystemWatcher
         private void Changed(object source, FileSystemEventArgs e)
         {
@@ -170,7 +173,8 @@ namespace Administrador_tienda_FASV
             ExportarXML();
             GetFiles();
             SetFileWatcher();
-       
+            GetCambios();
+
             WindowState = FormWindowState.Maximized;
 
 

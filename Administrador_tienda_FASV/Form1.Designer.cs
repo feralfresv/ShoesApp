@@ -44,18 +44,19 @@
             this.TextBox_File = new System.Windows.Forms.TextBox();
             this.FileSystemWatcher1 = new System.IO.FileSystemWatcher();
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FileSystemWatcher1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 169);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 28;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1677, 254);
+            this.dataGridView1.Size = new System.Drawing.Size(1800, 254);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.Click += new System.EventHandler(this.DataGridView1_Click);
             // 
@@ -147,7 +148,7 @@
             // Button_Actualizar
             // 
             this.Button_Actualizar.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.Button_Actualizar.Location = new System.Drawing.Point(641, 445);
+            this.Button_Actualizar.Location = new System.Drawing.Point(852, 442);
             this.Button_Actualizar.Name = "Button_Actualizar";
             this.Button_Actualizar.Size = new System.Drawing.Size(116, 62);
             this.Button_Actualizar.TabIndex = 10;
@@ -178,7 +179,7 @@
             this.TextBox_File.Location = new System.Drawing.Point(17, 522);
             this.TextBox_File.Multiline = true;
             this.TextBox_File.Name = "TextBox_File";
-            this.TextBox_File.Size = new System.Drawing.Size(1672, 103);
+            this.TextBox_File.Size = new System.Drawing.Size(896, 103);
             this.TextBox_File.TabIndex = 13;
             // 
             // FileSystemWatcher1
@@ -193,14 +194,24 @@
             this.listBox1.ItemHeight = 20;
             this.listBox1.Location = new System.Drawing.Point(17, 667);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(1672, 144);
+            this.listBox1.Size = new System.Drawing.Size(896, 144);
             this.listBox1.TabIndex = 14;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(958, 522);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowTemplate.Height = 28;
+            this.dataGridView2.Size = new System.Drawing.Size(777, 289);
+            this.dataGridView2.TabIndex = 15;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1701, 834);
+            this.ClientSize = new System.Drawing.Size(1747, 834);
+            this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.TextBox_File);
             this.Controls.Add(this.Button_Editar);
@@ -217,10 +228,12 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FileSystemWatcher1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -244,6 +257,7 @@
         private System.Windows.Forms.TextBox TextBox_File;
         private System.IO.FileSystemWatcher FileSystemWatcher1;
         private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.DataGridView dataGridView2;
     }
 }
 

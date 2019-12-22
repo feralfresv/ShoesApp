@@ -46,6 +46,8 @@ namespace CDatos
         public virtual DbSet<SizeForProduct> SizeForProduct { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<database_firewall_rules2> database_firewall_rules2 { get; set; }
+        public virtual DbSet<ChangesOnProduct> ChangesOnProduct { get; set; }
+        public virtual DbSet<products_audits> products_audits { get; set; }
     
         public virtual int ACOB_DeleteProd(Nullable<int> iD)
         {
@@ -2035,6 +2037,170 @@ namespace CDatos
         public virtual ObjectResult<FASV1_AllColor_Result> FASV1_AllColor()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<FASV1_AllColor_Result>("FASV1_AllColor");
+        }
+    
+        public virtual ObjectResult<BRTV_InsertChanges_Result> BRTV_InsertChanges()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<BRTV_InsertChanges_Result>("BRTV_InsertChanges");
+        }
+    
+        public virtual ObjectResult<BRTV_ShowChanges_Result> BRTV_ShowChanges()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<BRTV_ShowChanges_Result>("BRTV_ShowChanges");
+        }
+    
+        public virtual int BRTV_updateM(Nullable<int> id, Nullable<int> idType, Nullable<int> idColor, Nullable<int> idBrand, Nullable<int> idProvider, string title, string nombre, string description, string observation, Nullable<decimal> priceDistributor, Nullable<decimal> priceClient, Nullable<decimal> priceMember, Nullable<bool> isEnabled, string keywords)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            var idTypeParameter = idType.HasValue ?
+                new ObjectParameter("IdType", idType) :
+                new ObjectParameter("IdType", typeof(int));
+    
+            var idColorParameter = idColor.HasValue ?
+                new ObjectParameter("IdColor", idColor) :
+                new ObjectParameter("IdColor", typeof(int));
+    
+            var idBrandParameter = idBrand.HasValue ?
+                new ObjectParameter("IdBrand", idBrand) :
+                new ObjectParameter("IdBrand", typeof(int));
+    
+            var idProviderParameter = idProvider.HasValue ?
+                new ObjectParameter("IdProvider", idProvider) :
+                new ObjectParameter("IdProvider", typeof(int));
+    
+            var titleParameter = title != null ?
+                new ObjectParameter("Title", title) :
+                new ObjectParameter("Title", typeof(string));
+    
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("Nombre", nombre) :
+                new ObjectParameter("Nombre", typeof(string));
+    
+            var descriptionParameter = description != null ?
+                new ObjectParameter("Description", description) :
+                new ObjectParameter("Description", typeof(string));
+    
+            var observationParameter = observation != null ?
+                new ObjectParameter("Observation", observation) :
+                new ObjectParameter("Observation", typeof(string));
+    
+            var priceDistributorParameter = priceDistributor.HasValue ?
+                new ObjectParameter("PriceDistributor", priceDistributor) :
+                new ObjectParameter("PriceDistributor", typeof(decimal));
+    
+            var priceClientParameter = priceClient.HasValue ?
+                new ObjectParameter("PriceClient", priceClient) :
+                new ObjectParameter("PriceClient", typeof(decimal));
+    
+            var priceMemberParameter = priceMember.HasValue ?
+                new ObjectParameter("PriceMember", priceMember) :
+                new ObjectParameter("PriceMember", typeof(decimal));
+    
+            var isEnabledParameter = isEnabled.HasValue ?
+                new ObjectParameter("IsEnabled", isEnabled) :
+                new ObjectParameter("IsEnabled", typeof(bool));
+    
+            var keywordsParameter = keywords != null ?
+                new ObjectParameter("Keywords", keywords) :
+                new ObjectParameter("Keywords", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("BRTV_updateM", idParameter, idTypeParameter, idColorParameter, idBrandParameter, idProviderParameter, titleParameter, nombreParameter, descriptionParameter, observationParameter, priceDistributorParameter, priceClientParameter, priceMemberParameter, isEnabledParameter, keywordsParameter);
+        }
+    
+        public virtual int eumc1_deleteProductById(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("eumc1_deleteProductById", idParameter);
+        }
+    
+        public virtual int eumc1_disableProductById(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("eumc1_disableProductById", idParameter);
+        }
+    
+        public virtual ObjectResult<eumc1_getProductColors_Result> eumc1_getProductColors()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<eumc1_getProductColors_Result>("eumc1_getProductColors");
+        }
+    
+        public virtual int MPVI_AGREGATE(Nullable<int> idType, Nullable<int> idColor, Nullable<int> idBrand, Nullable<int> idProvider, Nullable<int> idCatalog, string title, string nombre, string description, string observations, Nullable<decimal> priceDistributor, Nullable<decimal> priceClient, Nullable<decimal> priceMember, Nullable<bool> isEnabled, string keywords, Nullable<System.DateTime> dataUpdate)
+        {
+            var idTypeParameter = idType.HasValue ?
+                new ObjectParameter("IdType", idType) :
+                new ObjectParameter("IdType", typeof(int));
+    
+            var idColorParameter = idColor.HasValue ?
+                new ObjectParameter("IdColor", idColor) :
+                new ObjectParameter("IdColor", typeof(int));
+    
+            var idBrandParameter = idBrand.HasValue ?
+                new ObjectParameter("IdBrand", idBrand) :
+                new ObjectParameter("IdBrand", typeof(int));
+    
+            var idProviderParameter = idProvider.HasValue ?
+                new ObjectParameter("IdProvider", idProvider) :
+                new ObjectParameter("IdProvider", typeof(int));
+    
+            var idCatalogParameter = idCatalog.HasValue ?
+                new ObjectParameter("IdCatalog", idCatalog) :
+                new ObjectParameter("IdCatalog", typeof(int));
+    
+            var titleParameter = title != null ?
+                new ObjectParameter("Title", title) :
+                new ObjectParameter("Title", typeof(string));
+    
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("Nombre", nombre) :
+                new ObjectParameter("Nombre", typeof(string));
+    
+            var descriptionParameter = description != null ?
+                new ObjectParameter("Description", description) :
+                new ObjectParameter("Description", typeof(string));
+    
+            var observationsParameter = observations != null ?
+                new ObjectParameter("Observations", observations) :
+                new ObjectParameter("Observations", typeof(string));
+    
+            var priceDistributorParameter = priceDistributor.HasValue ?
+                new ObjectParameter("PriceDistributor", priceDistributor) :
+                new ObjectParameter("PriceDistributor", typeof(decimal));
+    
+            var priceClientParameter = priceClient.HasValue ?
+                new ObjectParameter("PriceClient", priceClient) :
+                new ObjectParameter("PriceClient", typeof(decimal));
+    
+            var priceMemberParameter = priceMember.HasValue ?
+                new ObjectParameter("PriceMember", priceMember) :
+                new ObjectParameter("PriceMember", typeof(decimal));
+    
+            var isEnabledParameter = isEnabled.HasValue ?
+                new ObjectParameter("IsEnabled", isEnabled) :
+                new ObjectParameter("IsEnabled", typeof(bool));
+    
+            var keywordsParameter = keywords != null ?
+                new ObjectParameter("Keywords", keywords) :
+                new ObjectParameter("Keywords", typeof(string));
+    
+            var dataUpdateParameter = dataUpdate.HasValue ?
+                new ObjectParameter("DataUpdate", dataUpdate) :
+                new ObjectParameter("DataUpdate", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("MPVI_AGREGATE", idTypeParameter, idColorParameter, idBrandParameter, idProviderParameter, idCatalogParameter, titleParameter, nombreParameter, descriptionParameter, observationsParameter, priceDistributorParameter, priceClientParameter, priceMemberParameter, isEnabledParameter, keywordsParameter, dataUpdateParameter);
+        }
+    
+        public virtual ObjectResult<FASV1_GetChangesOnProduct_Desc_Result> FASV1_GetChangesOnProduct_Desc()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<FASV1_GetChangesOnProduct_Desc_Result>("FASV1_GetChangesOnProduct_Desc");
         }
     }
 }

@@ -229,6 +229,36 @@ namespace CDatos
             }
             #endregion
         }
-//
+
+        public List<FASV1_GetChangesOnProduct_Desc_Result> GetCambiosPro()
+        {
+            try
+            {
+                using (DataProductsEntities rr = new DataProductsEntities())
+                {
+                    List<FASV1_GetChangesOnProduct_Desc_Result> LChange = new List<FASV1_GetChangesOnProduct_Desc_Result>();
+                    foreach (var item in fff.ChangesOnProduct.ToList())
+                    {
+                        FASV1_GetChangesOnProduct_Desc_Result Cop = new FASV1_GetChangesOnProduct_Desc_Result();
+                        {
+                            Cop.IdLog = item.IdLog;
+                            Cop.IdProduct = item.IdProduct;
+                            Cop.ActionMade = item.ActionMade;
+
+                            LChange.Add(Cop);
+                        }
+                    }
+                    return LChange;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
+
+        
     }
 }
