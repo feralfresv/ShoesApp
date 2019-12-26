@@ -9,6 +9,8 @@ using CDatos;
 using System.ComponentModel;
 using CNegocio;
 using Entity;
+using System.Xml.Serialization;
+using System.IO;
 
 namespace CNegocio
 {
@@ -60,6 +62,26 @@ namespace CNegocio
         public List<FASV1_GetChangesOnProduct_Desc_Result> GetCambios()
         {
             return BsProd.GetCambiosPro();
+        }
+
+        public void SerializeToXml<T>(T obj, string fileName)
+        {
+            XmlSerializer ser = new XmlSerializer(typeof(T));
+            //Create a FileStream object connected to the target file 
+            FileStream fileStream = new FileStream(fileName, FileMode.Create);
+            ser.Serialize(fileStream, obj);
+            fileStream.Close();
+        }
+
+        public T DeserializeFromXml<T>(string xml)
+        {
+            T result;
+            XmlSerializer ser = new XmlSerializer(typeof(T));
+            using (TextReader tr = new StringReader(xml))
+            {
+                result = (T)ser.Deserialize(tr);
+            }
+            return result;
         }
     }
 }

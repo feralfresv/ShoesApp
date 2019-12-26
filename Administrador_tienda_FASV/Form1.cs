@@ -20,7 +20,7 @@ namespace Administrador_tienda_FASV
         ConexionDB test = new ConexionDB();
         Business tt = new Business();
         Form2Modificar MD = new Form2Modificar();
-        string PathCarpeta = @"C:\Users\Curso\source\repos\Academia_Softtek\ShoesApp\XML";
+        //string PathCarpeta = @"C:\Users\Curso\source\repos\Academia_Softtek\ShoesApp\XML";
         string listItem = string.Empty;
         private delegate void myDelegate();
         DataSet ds = new DataSet();
@@ -53,36 +53,48 @@ namespace Administrador_tienda_FASV
         private void ExportarXML()
         {
             #region XML Extracción
-            var ds = new DataSet();
-            var dt = new DataTable();
+           
+            List<FASV1_GetChangesOnProduct_Desc_Result> list = new List<FASV1_GetChangesOnProduct_Desc_Result>();
 
-
-
-            foreach (var column in dataGridView1.Columns.Cast<DataGridViewColumn>())
+            if (File.Exists(@"C:\Users\Curso\source\repos\Academia_Softtek\ShoesApp\XML\Zapatos.xml"))
             {
-                dt.Columns.Add();
+                XmlDocument Doc = new XmlDocument();
+                Doc.Load(@"C:\Users\Curso\source\repos\Academia_Softtek\ShoesApp\XML\Zapatos.xml");
+                list.AddRange(tt.DeserializeFromXml<List<FASV1_GetChangesOnProduct_Desc_Result>>(Doc.OuterXml));
             }
 
-            var cellValues = new object[dataGridView1.Columns.Count];
+            tt.SerializeToXml<List<FASV1_GetChangesOnProduct_Desc_Result>>(tt.GetCambios().ToList(), @"C:\Users\Curso\source\repos\Academia_Softtek\ShoesApp\XML\Zapatos.xml");
 
-            foreach (var row in dataGridView1.Rows.Cast<DataGridViewRow>())
-            {
-                for (int i = 0; i < row.Cells.Count; i++)
-                {
-                    cellValues[i] = row.Cells[i].Value;
+            //var ds = new DataSet();
+            //var dt = new DataTable();
 
-                }
-                dt.Rows.Add(cellValues);
 
-            }
 
-            ds.Tables.Add(dt);
+            //foreach (var column in dataGridView1.Columns.Cast<DataGridViewColumn>())
+            //{
+            //    dt.Columns.Add();
+            //}
 
-            string FileName = @"C:/Users/Curso/source/repos/Academia_Softtek/ShoesApp/XML/Zapatos_xml.xml";
-            FileStream Stream = new FileStream(FileName, FileMode.Create);
-            XmlTextWriter xmlWriter = new XmlTextWriter(Stream, System.Text.Encoding.Unicode);
-            ds.WriteXml(xmlWriter);
-            xmlWriter.Close();
+            //var cellValues = new object[dataGridView1.Columns.Count];
+
+            //foreach (var row in dataGridView1.Rows.Cast<DataGridViewRow>())
+            //{
+            //    for (int i = 0; i < row.Cells.Count; i++)
+            //    {
+            //        cellValues[i] = row.Cells[i].Value;
+
+            //    }
+            //    dt.Rows.Add(cellValues);
+
+            //}
+
+            //ds.Tables.Add(dt);
+
+            //string FileName = @"C:/Users/Curso/source/repos/Academia_Softtek/ShoesApp/XML/Zapatos_xml.xml";
+            //FileStream Stream = new FileStream(FileName, FileMode.Create);
+            //XmlTextWriter xmlWriter = new XmlTextWriter(Stream, System.Text.Encoding.Unicode);
+            //ds.WriteXml(xmlWriter);
+            //xmlWriter.Close();
             #endregion
         }
         private void GetFiles()
@@ -97,8 +109,12 @@ namespace Administrador_tienda_FASV
         }
         private void GetCambios()
         {
+            
+            dataGridView2.DataSource = null;
             dataGridView2.DataSource = test.GetCambiosPro();
         }
+
+
         #region FileSystemWatcher
         private void Changed(object source, FileSystemEventArgs e)
         {
@@ -274,8 +290,7 @@ namespace Administrador_tienda_FASV
         private void FileSystemWatcher1_Changed(object sender, FileSystemEventArgs e)//Obtener Carpetas
         {           
             GetFiles();
-        }   
-
+        }
 
     }
 }
