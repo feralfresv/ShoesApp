@@ -16,6 +16,6 @@ namespace CDatos
     {
         public int IdLog { get; set; }
         public int IdProduct { get; set; }
-        public byte ActionMade { get; set; }
+        public int ActionMade { get; set; }
     }
 }

@@ -25,7 +25,7 @@ namespace Administrador_tienda_FASV
         //METODOS-------------------------------------------------
         public void AgregarInsert()
         {
-            bb.InsertarPro(TextBox_addNombre.Text, TextBox_AddDescProduc.Text, Convert.ToInt32(TextBox_AddPrecio.Text), Convert.ToInt32(comboBox1.SelectedValue));
+            bb.InsertarPro(TextBox_addNombre.Text, TextBox_AddDescProduc.Text, Convert.ToInt32(TextBox_AddPrecio.Text), Convert.ToInt32(comboBox1.SelectedValue), DateTime.Today);
             MessageBox.Show("Listo Agregado");
             
         }

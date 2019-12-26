@@ -47,12 +47,12 @@ namespace CNegocio
             BsProd.DeleteLogic(aId);
         }
 
-        public void InsertarPro(string aTitle, string aDescription, int aPrice, int aColor)
+        public void InsertarPro(string aTitle, string aDescription, int aPrice, int aColor, DateTime aDate)
         {
-            BsProd.InsertProd(aTitle, aDescription, aPrice, aColor);
+            BsProd.InsertProd(aTitle, aDescription, aPrice, aColor, aDate);
         }
 
-        public void ModifyProduct(int aId, string aTitle, string aDescripcion, Int64 aPriceClient, int aColor)
+        public void ModifyProduct(int aId, string aTitle, string aDescripcion, int aPriceClient, int aColor)
         {
             BsProd.ModifyProduc(aId, aTitle, aDescripcion, aPriceClient, aColor);
         }

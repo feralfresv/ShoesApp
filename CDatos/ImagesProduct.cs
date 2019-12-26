@@ -15,12 +15,14 @@ namespace CDatos
     public partial class ImagesProduct
     {
         public int IdImage { get; set; }
-        public int IdProduct { get; set; }
+        public int IdImageProduct { get; set; }
         public string Decription { get; set; }
         public byte[] Image { get; set; }
-        public System.DateTime DateUpdate { get; set; }
-        public bool IsEnabled { get; set; }
+        public string DateUpdate { get; set; }
+        public string IsEnabled { get; set; }
     
+        public virtual CatBrands CatBrands { get; set; }
+        public virtual CatCatalogs CatCatalogs { get; set; }
         public virtual Products Products { get; set; }
     }
 }

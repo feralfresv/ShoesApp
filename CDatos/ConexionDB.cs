@@ -165,7 +165,7 @@ namespace CDatos
                         m.IdBrand = n.IdBrand;
                         m.IdProvider = n.IdProvider;
                         m.IdCatalog = n.IdCatalog;
-                        m.Title = n.Title;
+                        m.Title = n.Title;  
                         m.Nombre = n.Nombre;
                         m.Description = n.Description;
                         m.Observations = n.Observations;
@@ -201,12 +201,12 @@ namespace CDatos
             #endregion
         }
 
-        public void InsertProd(string aTitle, string aDescription, int aPrice, int aColor)
+        public void InsertProd(string aTitle, string aDescription, int aPrice, int aColor, DateTime aDate)
         {//
             #region Insertar Productos 
             try
             {
-                fff.FASV1_InsertProduct(aTitle, aDescription, aPrice, aColor);
+                fff.FASV1_InsertProduct(aTitle, aDescription, aPrice, aColor, aDate);
             }
             catch (Exception)
             {
@@ -215,7 +215,7 @@ namespace CDatos
 #endregion
         }    
 
-        public void ModifyProduc(int aId, string aTitle, string aDescripcion, Int64 aPriceClient, int aColor)
+        public void ModifyProduc(int aId, string aTitle, string aDescripcion, int aPriceClient, int aColor)
         {//
             #region Modificar Producto
             try

@@ -23,7 +23,7 @@ namespace Administrador_tienda_FASV
         //METODOS-------------------------------------------------
         public void Modificar()
         {
-            bb.ModifyProduct(Convert.ToInt32(Txt_ModId.Text), Txt_ModNombre.Text, Txt_ModDescr.Text, Convert.ToInt64(TxT_ModPrecio.Text), Convert.ToInt32(comboBox1.SelectedValue));
+            bb.ModifyProduct(Convert.ToInt32(Txt_ModId.Text), Txt_ModNombre.Text, Txt_ModDescr.Text, Convert.ToInt32(TxT_ModPrecio.Text), Convert.ToInt32(comboBox1.SelectedValue));
             MessageBox.Show("Cambioar realizados");
         }
         public void LlamarColores()

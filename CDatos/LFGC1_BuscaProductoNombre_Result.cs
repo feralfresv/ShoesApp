@@ -11,14 +11,14 @@ namespace CDatos
 {
     using System;
     
-    public partial class dena_sp_MostrarTodo_Result
+    public partial class LFGC1_BuscaProductoNombre_Result
     {
         public int Id { get; set; }
         public Nullable<int> IdType { get; set; }
         public Nullable<int> IdColor { get; set; }
         public Nullable<int> IdBrand { get; set; }
         public Nullable<int> IdProvider { get; set; }
-        public Nullable<int> IdCatalog { get; set; }
+        public int IdCatalog { get; set; }
         public string Title { get; set; }
         public string Nombre { get; set; }
         public string Description { get; set; }
@@ -28,6 +28,6 @@ namespace CDatos
         public decimal PriceMember { get; set; }
         public bool IsEnabled { get; set; }
         public string Keywords { get; set; }
-        public Nullable<System.DateTime> DateUpdate { get; set; }
+        public System.DateTime DateUpdate { get; set; }
     }
 }
